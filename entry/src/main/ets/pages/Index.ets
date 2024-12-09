@@ -16,7 +16,7 @@ struct Index {
         }
         .width(BaseConstants.FULL_WIDTH)
         .tabBar(BottomTabBarStyle.of(this.pageIndex == 0 ?
-          $r('app.media.msg_select') : $r('app.media.msg'), '消息').labelStyle({
+          $r('app.media.msg_select') : $r('app.media.msg'), $r('app.string.Message')).labelStyle({
           selectedColor: $r('app.color.main_color'),
           unselectedColor: $r('app.color.pl_text_color')
         }))
@@ -26,7 +26,7 @@ struct Index {
         }
         .width(BaseConstants.FULL_WIDTH)
         .tabBar(BottomTabBarStyle.of(this.pageIndex == 1 ?
-          $r('app.media.app_select') : $r('app.media.app'), '工作台').labelStyle({
+          $r('app.media.app_select') : $r('app.media.app'), $r('app.string.Apps')).labelStyle({
           selectedColor: $r('app.color.main_color'),
           unselectedColor: $r('app.color.pl_text_color')
         }))

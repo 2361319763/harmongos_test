@@ -11,6 +11,22 @@
     {
       "name": "EntryAbility_label",
       "value": "P9-OFFICE"
+    },
+    {
+      "name": "Message",
+      "value": "Message"
+    },
+    {
+      "name": "Apps",
+      "value": "Apps"
+    },
+    {
+      "name": "Contacts",
+      "value": "Contacts"
+    },
+    {
+      "name": "My",
+      "value": "My"
     }
   ]
 }

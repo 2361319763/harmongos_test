@@ -12,7 +12,7 @@ export struct HomePage {
             .height(BaseConstants.FULL_HEIGHT)
             .backgroundColor($r('app.color.back_color'))
         }
-        .title('首页')
+        .title($r('app.string.Message'))
         .titleMode(NavigationTitleMode.Mini)
         .hideBackButton(true)
         .backgroundColor($r('sys.color.white'))

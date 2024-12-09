@@ -15,6 +15,8 @@ export class BaseConstants {
   static readonly HOME_LIST_WIDTH: string = '37%'
   static readonly APPLET_LIST_WIDTH: string = '37%'
   static readonly IMAGE_ONE_ASPECT_RATIO: number = 1.33;
+  static readonly BORDER_RADIUS: number = 14;
+  static readonly MODULE_PADDING: number = 14;
   /**
    * Text property
    */
