@@ -1,4 +1,4 @@
-import { BaseConstants } from "../../common/BaseConstants"
+import { BaseConstants } from "jbase"
 
 // 首页
 @Component

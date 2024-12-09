@@ -1,6 +1,6 @@
 import { HomePage } from './tabbar/HomePage';
 import { AppsPage } from './tabbar/AppsPage';
-import { BaseConstants } from '../common/BaseConstants';
+import { BaseConstants } from 'jbase';
 @Entry
 @Component
 struct Index {
