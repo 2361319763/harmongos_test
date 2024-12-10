@@ -17,10 +17,10 @@ export struct SearchInput {
   @Prop compHeight: number = 40
   // 是否开启自动完成
   @Prop autoComplete: boolean = false
+  // 自动完成延时
   @Prop autoCompleteTime: number = 500
   @Link inputValue: string
   private controller: SearchController = new SearchController()
-  private timerId: number = 0
 
   build() {
     Row() {

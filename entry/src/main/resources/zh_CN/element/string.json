@@ -27,6 +27,10 @@
     {
       "name": "My",
       "value": "我的"
+    },
+    {
+      "name": "notice",
+      "value": "通知"
     }
   ]
 }

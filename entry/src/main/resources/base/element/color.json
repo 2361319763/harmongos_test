@@ -15,6 +15,10 @@
     {
       "name": "back_color",
       "value": "#f5f5f5"
+    },
+    {
+      "name": "notice_color",
+      "value": "#FFA019"
     }
   ]
 }
