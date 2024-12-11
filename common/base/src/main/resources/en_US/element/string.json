@@ -2,7 +2,23 @@
   "string": [
     {
       "name": "search_text",
-      "value": "search"
+      "value": "Search"
+    },
+    {
+      "name": "notice_title",
+      "value": "Notice"
+    },
+    {
+      "name": "common_app",
+      "value": "My App"
+    },
+    {
+      "name": "edit_app",
+      "value": "Edit App"
+    },
+    {
+      "name": "all_app",
+      "value": "All app"
     }
   ]
 }

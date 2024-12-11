@@ -1,12 +1,24 @@
 {
   "string": [
     {
-      "name": "page_show",
-      "value": "page from package"
-    },
-    {
       "name": "search_text",
       "value": "搜索"
+    },
+    {
+      "name": "notice_title",
+      "value": "通知"
+    },
+    {
+      "name": "common_app",
+      "value": "常用应用"
+    },
+    {
+      "name": "edit_app",
+      "value": "编辑应用"
+    },
+    {
+      "name": "all_app",
+      "value": "全部应用"
     }
   ]
 }

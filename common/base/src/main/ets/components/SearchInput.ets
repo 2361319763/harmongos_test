@@ -19,12 +19,17 @@ export struct SearchInput {
   @Prop autoComplete: boolean = false
   // 自动完成延时
   @Prop autoCompleteTime: number = 500
-  @Link inputValue: string
+  // 自动完成定时器
+  private timerId: number = 0
+  @State inputValue: string = ''
   private controller: SearchController = new SearchController()
+
+  // 搜索提交事件
+  onSearchSubmit?: (value: string) => void
 
   build() {
     Row() {
-      Search({ value: $$this.inputValue, placeholder: this.plText, controller: this.controller })
+      Search({ value: this.inputValue, placeholder: this.plText, controller: this.controller })
         .searchIcon(new SymbolGlyphModifier($r('sys.symbol.magnifyingglass'))
           .fontColor([$r('app.color.gl888')]).fontSize(18))
         .width(BaseConstants.FULL_WIDTH)
@@ -35,6 +40,21 @@ export struct SearchInput {
         .textFont({ size: 15, weight: 400 })
         .margin(0)
         .borderRadius(this.compRadius)
+        .onSubmit((value: string) => {
+          this.onSearchSubmit && this.onSearchSubmit(value)
+        })
+        .onChange((value: string) => {
+          this.inputValue = value
+          if (value === '' && !this.autoComplete) {
+            this.onSearchSubmit && this.onSearchSubmit(value)
+          }
+          if (this.autoComplete) {
+            this.timerId > 0 && clearTimeout(this.timerId)
+            this.timerId = setTimeout(() => {
+              this.onSearchSubmit && this.onSearchSubmit(value)
+            }, this.autoCompleteTime)
+          }
+        })
     }
   }
 }

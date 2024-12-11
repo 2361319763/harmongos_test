@@ -19,6 +19,10 @@
     {
       "name": "gl888",
       "value": "#888888"
+    },
+    {
+      "name": "notice_color",
+      "value": "#FFA019"
     }
   ]
 }
