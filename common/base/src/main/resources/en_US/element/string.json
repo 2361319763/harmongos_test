@@ -17,8 +17,20 @@
       "value": "Edit App"
     },
     {
+      "name": "add_app",
+      "value": "Add App"
+    },
+    {
       "name": "all_app",
       "value": "All app"
+    },
+    {
+      "name": "add_btn",
+      "value": "Add"
+    },
+    {
+      "name": "added_btn",
+      "value": "Added"
     }
   ]
 }

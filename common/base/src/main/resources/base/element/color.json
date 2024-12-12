@@ -9,11 +9,19 @@
       "value": "#f5f5f5"
     },
     {
+      "name": "back_eee",
+      "value": "#eeeeee"
+    },
+    {
       "name": "black",
       "value": "#101010"
     },
     {
       "name": "input_pl",
+      "value": "#999999"
+    },
+    {
+      "name": "gl999",
       "value": "#999999"
     },
     {

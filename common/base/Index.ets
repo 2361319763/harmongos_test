@@ -6,5 +6,7 @@ export { NoticeBarModel, AppItemModel } from "./src/main/ets/types/AllTypes";
 export { SearchInput } from "./src/main/ets/components/SearchInput";
 // 通知栏组件
 export { NoticeBar } from "./src/main/ets/components/NoticeBar";
+// 应用模块
+export { AppsModule } from "./src/main/ets/components/AppsModule";
 // 工具类
 export { StringUtils } from "./src/main/ets/utils/StringUtils";

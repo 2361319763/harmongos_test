@@ -1,0 +1,12 @@
+{
+  "routerMap": [
+    {
+      "name": "appsManage",
+      "pageSourceFile": "src/main/ets/pages/apps/AppsManage.ets",
+      "buildFunction": "AppsManageBuilder",
+      "data": {
+        "type": "add"
+      }
+    }
+  ]
+}

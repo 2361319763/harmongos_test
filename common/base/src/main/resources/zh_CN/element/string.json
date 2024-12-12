@@ -17,8 +17,20 @@
       "value": "编辑应用"
     },
     {
+      "name": "add_app",
+      "value": "添加应用"
+    },
+    {
       "name": "all_app",
       "value": "全部应用"
+    },
+    {
+      "name": "add_btn",
+      "value": "添加"
+    },
+    {
+      "name": "added_btn",
+      "value": "已添加"
     }
   ]
 }

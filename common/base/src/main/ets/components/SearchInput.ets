@@ -31,7 +31,7 @@ export struct SearchInput {
     Row() {
       Search({ value: this.inputValue, placeholder: this.plText, controller: this.controller })
         .searchIcon(new SymbolGlyphModifier($r('sys.symbol.magnifyingglass'))
-          .fontColor([$r('app.color.gl888')]).fontSize(18))
+          .fontColor([$r('app.color.black')]).fontSize(18))
         .width(BaseConstants.FULL_WIDTH)
         .height(this.compHeight)
         .backgroundColor(this.backColor)

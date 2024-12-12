@@ -10,11 +10,13 @@ export struct HomePage {
             }
             .width(BaseConstants.FULL_WIDTH)
             .height(BaseConstants.FULL_HEIGHT)
-            .backgroundColor($r('app.color.back_color'))
         }
-        .title($r('app.string.Message'))
+        .title($r('app.string.Message'), {
+            backgroundColor: $r('app.color.white'),
+            backgroundBlurStyle: BlurStyle.Thin
+        })
         .titleMode(NavigationTitleMode.Mini)
         .hideBackButton(true)
-        .backgroundColor($r('sys.color.white'))
+        .backgroundColor($r('app.color.back_color'))
     }
 }
