@@ -1,10 +1,25 @@
 import { AbilityConstant, ConfigurationConstant, UIAbility, Want } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { font, window } from '@kit.ArkUI';
+import { CustomTheme, CustomColors, ThemeControl } from '@kit.ArkUI';
+// 自定义主题颜色
+class MainColors implements CustomColors {
+  brand = $r('app.color.main_color')
+}
+
+class PageCustomTheme implements CustomTheme {
+  colors?: CustomColors;
+  constructor(colors: CustomColors) {
+    this.colors = colors;
+  }
+}
 
 export default class EntryAbility extends UIAbility {
   onCreate(want: Want, launchParam: AbilityConstant.LaunchParam): void {
     this.context.getApplicationContext().setColorMode(ConfigurationConstant.ColorMode.COLOR_MODE_NOT_SET);
+    // 创建实例
+    const MainColorsTheme = new PageCustomTheme(new MainColors());
+    ThemeControl.setDefaultTheme(MainColorsTheme);
     hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onCreate');
   }
 

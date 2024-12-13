@@ -1,16 +1,12 @@
 {
   "color": [
     {
-      "name": "start_window_background",
+      "name": "start_back",
       "value": "#FFFFFF"
     },
     {
       "name": "main_color",
       "value": "#2999FB"
-    },
-    {
-      "name": "pl_text_color",
-      "value": "#888888"
     },
     {
       "name": "back_color",

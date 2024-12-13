@@ -13,7 +13,7 @@ export struct AppsModule {
   // 标签大小
   @Prop labelSize: number = 14
   // 图标大小
-  @Prop iconSize: number = 55
+  @Prop iconSize: number = 53
   // 列数
   @Prop columns: number = 4
   // 显示编辑按钮
@@ -44,7 +44,7 @@ export struct AppsModule {
         Text(this.moduleTitle).fontSize(18).fontColor($r('app.color.black')).fontWeight(500)
         if (this.showEditBtn) {
           Text(`\ue6ef ${StringUtils.getResStr($r('app.string.edit_app'), this)}`).fontSize(14)
-            .fontColor($r('app.color.gl888')).fontFamily('iconfont')
+            .fontColor($r('app.color.gl_888')).fontFamily('iconfont')
             .padding(4)
             .onClick(() => {
               this.onEditClick && this.onEditClick()
@@ -60,7 +60,7 @@ export struct AppsModule {
               Text(item.appName).fontSize(this.labelSize).fontColor(this.labelColor).margin({ top: 8 })
             }
           }
-          .clickEffect({ level: ClickEffectLevel.HEAVY, scale: 0.5 })
+          .clickEffect({ level: ClickEffectLevel.LIGHT, scale: 0.8 })
           .onClick(() => {
             this.onItemClick && this.onItemClick(item, index)
           })
@@ -68,7 +68,7 @@ export struct AppsModule {
         if (this.showAddBtn) {
           GridItem() {
             Row() {
-              SymbolGlyph($r('sys.symbol.plus')).fontColor([$r('app.color.gl999')]).fontSize(22)
+              SymbolGlyph($r('sys.symbol.plus')).fontColor([$r('app.color.gl_999')]).fontSize(22)
             }
             .width(this.iconSize)
             .height(this.iconSize)
@@ -76,7 +76,7 @@ export struct AppsModule {
             .justifyContent(FlexAlign.Center)
             .borderRadius(BaseConstants.BORDER_RADIUS)
           }
-          .clickEffect({ level: ClickEffectLevel.HEAVY, scale: 0.5 })
+          .clickEffect({ level: ClickEffectLevel.LIGHT, scale: 0.8 })
           .onClick(() => {
             this.onAddClick && this.onAddClick()
           })

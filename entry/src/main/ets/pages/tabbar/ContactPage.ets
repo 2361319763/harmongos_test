@@ -1,4 +1,4 @@
-import { Alphabets, BaseConstants, ContactsDataModel, ListDividerBorder } from "jbase"
+import { Alphabets, BaseConstants, ContactsDataModel } from "jbase"
 import { ContactsListData } from "../../mock/ContactsDataMock";
 import { ContactsItem } from "../comps/ContactsItem";
 
@@ -12,18 +12,20 @@ export struct ContactPage {
   private listScroller: Scroller = new Scroller();
 
   findContactsItemIndex(index: number): number {
+    console.log('currentIndex: ' + index)
     if (index < 0) return 0;
-    const currentIndex = ContactsListData.findIndex(item => item.en_name[0].toUpperCase() === Alphabets[index]);
+    const currentIndex = ContactsListData.findIndex(item => item.en_name[0].toUpperCase() === Alphabets[index])
     if (currentIndex === -1) {
-      return this.findContactsItemIndex(index - 1);
+      return this.findContactsItemIndex(index - 1)
     } else {
       return currentIndex;
     }
   }
+  // 列表分组标题
   @Builder itemTitle() {
     Row() {
-      Text('联系人')
-        .fontSize(15).fontColor($r('app.color.gl888'))
+      Text($r('app.string.ct_title'))
+        .fontSize(15).fontColor($r('app.color.gl_888'))
     }
     .backgroundColor($r('app.color.back_color'))
     .width(BaseConstants.FULL_WIDTH)
@@ -34,17 +36,18 @@ export struct ContactPage {
       Flex({ direction: FlexDirection.Column }) {
         Stack({ alignContent: Alignment.End }) {
           List({ scroller: this.listScroller }) {
+            // 顶部的分组
             ListItemGroup() {
               ListItem() {
-                ContactsItem({ name: '小杰助手', icon: $r('sys.symbol.children'), backColor: '#FA9C3B', isSys: true })
+                ContactsItem({ name: $r('app.string.ct_xj'), icon: $r('sys.symbol.children'), backColor: '#FA9C3B', isSys: true })
               }.listItemStyle()
               .borderRadius({ topLeft: BaseConstants.BORDER_RADIUS, topRight: BaseConstants.BORDER_RADIUS })
               .padding({ top: 6 })
               ListItem() {
-                ContactsItem({ name: '群组聊天', icon: $r('sys.symbol.message_on_message_fill'), backColor: '#0EC15F', isSys: true })
+                ContactsItem({ name: $r('app.string.ct_group'), icon: $r('sys.symbol.message_on_message_fill'), backColor: '#0EC15F', isSys: true })
               }.listItemStyle()
               ListItem() {
-                ContactsItem({ name: '组织机构', icon: $r('sys.symbol.person_2_fill'),
+                ContactsItem({ name: $r('app.string.ct_org'), icon: $r('sys.symbol.person_2_fill'),
                   backColor: '#1486EE', isSys: true, showBorder: false })
               }.listItemStyle()
               .borderRadius({ bottomLeft: BaseConstants.BORDER_RADIUS, bottomRight: BaseConstants.BORDER_RADIUS })
@@ -52,7 +55,7 @@ export struct ContactPage {
             }
             .borderRadius(BaseConstants.BORDER_RADIUS)
             .backgroundColor($r('app.color.white'))
-
+            // 联系人分组，这里没有完善，有点弄不来，后面再说了 ！！！
             ListItemGroup({ header: this.itemTitle() }) {
               ForEach(ContactsListData, (item: ContactsDataModel, index: number) => {
                 if (index === 0) {
@@ -77,29 +80,22 @@ export struct ContactPage {
           .scrollBar(BarState.Off)
           .edgeEffect(EdgeEffect.None)
           .margin({ bottom: 50 })
+          .onScrollIndex((index: number) => {
+            this.selectedIndex = index
+          })
+          // 索引器
           AlphabetIndexer({ arrayValue: Alphabets, selected: 0 })
             .onSelect((index: number) => {
-              const currentIndex = this.findContactsItemIndex(index);
-              this.listScroller.scrollToIndex(currentIndex + 2);
-            })
-            .margin({ right: '16vp' })
-            .color(Color.Black)
-            .font({
-              size: '12pf',
-              weight: 500,
-            })
+              const currentIndex = this.findContactsItemIndex(index)
+              this.listScroller.scrollToIndex(currentIndex + 1)
+            }).margin({ right: '16vp' }).color(Color.Black)
+            .font({ size: '12pf', weight: 500, })
+            .selected(this.selectedIndex)
         }
-      }
-      .height(BaseConstants.FULL_HEIGHT)
-      .width(BaseConstants.FULL_WIDTH)
+      }.height(BaseConstants.FULL_HEIGHT).width(BaseConstants.FULL_WIDTH)
     }
-    .title($r('app.string.Contacts'), {
-      backgroundColor: $r('app.color.white'),
-      backgroundBlurStyle: BlurStyle.Thin,
-    })
-    .titleMode(NavigationTitleMode.Mini)
-    .hideBackButton(true)
-    .backgroundColor($r('app.color.back_color'))
+    .title($r('app.string.contacts'), { backgroundColor: $r('app.color.white') })
+    .titleMode(NavigationTitleMode.Mini).hideBackButton(true).backgroundColor($r('app.color.back_color'))
   }
 
   @Styles listItemStyle() {

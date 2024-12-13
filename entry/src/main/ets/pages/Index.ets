@@ -19,9 +19,9 @@ struct Index {
         }
         .width(BaseConstants.FULL_WIDTH)
         .tabBar(BottomTabBarStyle.of(this.pageIndex == 0 ?
-          $r('app.media.msg_select') : $r('app.media.msg'), $r('app.string.Message')).labelStyle({
+          $r('app.media.msg_select') : $r('app.media.msg'), $r('app.string.message')).labelStyle({
           selectedColor: $r('app.color.main_color'),
-          unselectedColor: $r('app.color.pl_text_color')
+          unselectedColor: $r('app.color.gl_888')
         }))
         // 工作台
         TabContent(){
@@ -29,9 +29,9 @@ struct Index {
         }
         .width(BaseConstants.FULL_WIDTH)
         .tabBar(BottomTabBarStyle.of(this.pageIndex == 1 ?
-          $r('app.media.app_select') : $r('app.media.app'), $r('app.string.Apps')).labelStyle({
+          $r('app.media.app_select') : $r('app.media.app'), $r('app.string.apps')).labelStyle({
           selectedColor: $r('app.color.main_color'),
-          unselectedColor: $r('app.color.pl_text_color')
+          unselectedColor: $r('app.color.gl_888')
         }))
 
         // 联系人
@@ -40,9 +40,9 @@ struct Index {
         }
         .width(BaseConstants.FULL_WIDTH)
         .tabBar(BottomTabBarStyle.of(this.pageIndex == 2 ?
-          $r('app.media.contact_select') : $r('app.media.contact'), $r('app.string.Contacts')).labelStyle({
+          $r('app.media.contact_select') : $r('app.media.contact'), $r('app.string.contacts')).labelStyle({
           selectedColor: $r('app.color.main_color'),
-          unselectedColor: $r('app.color.pl_text_color')
+          unselectedColor: $r('app.color.gl_888')
         }))
         // 我的
         TabContent(){
@@ -50,9 +50,9 @@ struct Index {
         }
         .width(BaseConstants.FULL_WIDTH)
         .tabBar(BottomTabBarStyle.of(this.pageIndex == 3 ?
-          $r('app.media.my_select') : $r('app.media.my'), $r('app.string.My')).labelStyle({
+          $r('app.media.my_select') : $r('app.media.my'), $r('app.string.my')).labelStyle({
           selectedColor: $r('app.color.main_color'),
-          unselectedColor: $r('app.color.pl_text_color')
+          unselectedColor: $r('app.color.gl_888')
         }))
       }
       .barOverlap(true)

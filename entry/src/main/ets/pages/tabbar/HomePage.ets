@@ -11,7 +11,7 @@ export struct HomePage {
             .width(BaseConstants.FULL_WIDTH)
             .height(BaseConstants.FULL_HEIGHT)
         }
-        .title($r('app.string.Message'), {
+        .title($r('app.string.message'), {
             backgroundColor: $r('app.color.white'),
             backgroundBlurStyle: BlurStyle.Thin
         })

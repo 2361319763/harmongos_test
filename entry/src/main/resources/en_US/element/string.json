@@ -1,36 +1,48 @@
 {
   "string": [
     {
-      "name": "module_desc",
-      "value": "module description"
-    },
-    {
-      "name": "EntryAbility_desc",
-      "value": "description"
-    },
-    {
-      "name": "EntryAbility_label",
+      "name": "app_name",
       "value": "P9-OFFICE"
     },
     {
-      "name": "Message",
+      "name": "app_desc",
+      "value": "Jie.'s App"
+    },
+    {
+      "name": "message",
       "value": "Message"
     },
     {
-      "name": "Apps",
+      "name": "apps",
       "value": "Apps"
     },
     {
-      "name": "Contacts",
+      "name": "contacts",
       "value": "Contacts"
     },
     {
-      "name": "My",
+      "name": "my",
       "value": "My"
     },
     {
       "name": "notice",
       "value": "Notice"
+    },
+    {
+      "name": "ct_title",
+      "value": "Contacts Title"
+    },
+    {
+      "name": "ct_xj",
+      "value": "Jie Helper"
+    },
+    {
+      "name": "ct_group",
+      "value": "Group Chat"
+    },
+    {
+      "name": "ct_org",
+      "value": "Organization"
     }
   ]
 }

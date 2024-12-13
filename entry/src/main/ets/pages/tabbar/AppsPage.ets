@@ -70,7 +70,7 @@ export struct AppsPage {
           }.width(BaseConstants.FULL_WIDTH)
         }.scrollBar(BarState.Off)
       }
-      .title($r('app.string.Apps'), {
+      .title($r('app.string.apps'), {
         backgroundColor: $r('app.color.white'),
         backgroundBlurStyle: BlurStyle.Thin,
       })

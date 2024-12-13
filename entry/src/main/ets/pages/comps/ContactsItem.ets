@@ -36,8 +36,9 @@ export struct ContactsItem {
       }
       .width(BaseConstants.FULL_WIDTH)
       .padding({ top: 8, bottom: 8 })
+      .clickEffect({ level: ClickEffectLevel.LIGHT, scale: 0.9 })
       if (this.showBorder) {
-        Divider().color('#e9e9e9')
+        Divider().color($r('app.color.border_e9'))
           .margin({ left: 60 })
           .height(1)
       }

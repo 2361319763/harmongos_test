@@ -1,36 +1,48 @@
 {
   "string": [
     {
-      "name": "module_desc",
-      "value": "模块描述"
-    },
-    {
-      "name": "EntryAbility_desc",
-      "value": "description"
-    },
-    {
-      "name": "EntryAbility_label",
+      "name": "app_name",
       "value": "P9-OFFICE"
     },
     {
-      "name": "Message",
+      "name": "app_desc",
+      "value": "自己开发的鸿蒙App"
+    },
+    {
+      "name": "message",
       "value": "消息"
     },
     {
-      "name": "Apps",
+      "name": "apps",
       "value": "工作台"
     },
     {
-      "name": "Contacts",
+      "name": "contacts",
       "value": "通讯录"
     },
     {
-      "name": "My",
+      "name": "my",
       "value": "我的"
     },
     {
       "name": "notice",
       "value": "通知"
+    },
+    {
+      "name": "ct_title",
+      "value": "联系人"
+    },
+    {
+      "name": "ct_xj",
+      "value": "小杰助手"
+    },
+    {
+      "name": "ct_group",
+      "value": "群组聊天"
+    },
+    {
+      "name": "ct_org",
+      "value": "组织机构"
     }
   ]
 }

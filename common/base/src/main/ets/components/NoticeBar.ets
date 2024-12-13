@@ -27,7 +27,7 @@ export struct NoticeBar {
         ForEach(this.noticeData, (item: NoticeBarModel, index) => {
           Row() {
             Text(this.noticeTitle).fontSize(this.textSize).margin({ right: 4 })
-            Text(item.title).fontSize(this.textSize).fontColor($r('app.color.gl888'))
+            Text(item.title).fontSize(this.textSize).fontColor($r('app.color.gl_888'))
           }
           .justifyContent(FlexAlign.Start)
           .onClick(() => {
