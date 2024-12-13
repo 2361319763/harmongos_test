@@ -1,6 +1,8 @@
 import { HomePage } from './tabbar/HomePage';
 import { AppsPage } from './tabbar/AppsPage';
 import { BaseConstants } from 'jbase';
+import { ContactPage } from './tabbar/ContactPage';
+
 @Entry
 @Component
 struct Index {
@@ -31,9 +33,10 @@ struct Index {
           selectedColor: $r('app.color.main_color'),
           unselectedColor: $r('app.color.pl_text_color')
         }))
+
         // 联系人
         TabContent(){
-          Text('联系人')
+          ContactPage()
         }
         .width(BaseConstants.FULL_WIDTH)
         .tabBar(BottomTabBarStyle.of(this.pageIndex == 2 ?
@@ -54,9 +57,8 @@ struct Index {
       }
       .barOverlap(true)
       .animationDuration(300)
-      .onChange((index: number) => {
-        this.pageIndex = index
-      })
+      .onTabBarClick((index: number) => this.pageIndex = index)
+      .onChange((index: number) => this.pageIndex = index)
     }
     .height(BaseConstants.FULL_HEIGHT)
     .hideTitleBar(true)

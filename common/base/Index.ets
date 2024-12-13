@@ -1,7 +1,7 @@
 // 基础一些字典
 export { BaseConstants, CurrentFeature, CurrentPage, DeviceTypes } from "./src/main/ets/constants/BaseConstants";
 // 数据类型
-export { NoticeBarModel, AppItemModel } from "./src/main/ets/types/AllTypes";
+export { NoticeBarModel, AppItemModel, ContactsDataModel, Alphabets } from "./src/main/ets/types/AllTypes";
 // 搜索组件
 export { SearchInput } from "./src/main/ets/components/SearchInput";
 // 通知栏组件
@@ -10,3 +10,5 @@ export { NoticeBar } from "./src/main/ets/components/NoticeBar";
 export { AppsModule } from "./src/main/ets/components/AppsModule";
 // 工具类
 export { StringUtils } from "./src/main/ets/utils/StringUtils";
+// 列表工具
+export { ListDividerBorder } from "./src/main/ets/utils/ListUtils";

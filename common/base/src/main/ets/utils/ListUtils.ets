@@ -1,14 +1,17 @@
 
+/**
+ * 列表线条
+ */
 export class ListDividerBorder {
   strokeWidth: Length = 1
   startMargin: Length = 60
   endMargin: Length = 0
-  color: ResourceColor = '#ffe9f0f0'
+  color: ResourceColor = $r('app.color.border_color')
 
   constructor(strokeWidth: Length, startMargin: Length, endMargin: Length, color: ResourceColor) {
     strokeWidth && (this.strokeWidth = strokeWidth)
-    startMargin > 0 && (this.startMargin = startMargin)
-    endMargin > 0 && (this.endMargin = endMargin)
+    this.startMargin = startMargin
+    this.endMargin = endMargin
     color && (this.color = color)
   }
 }

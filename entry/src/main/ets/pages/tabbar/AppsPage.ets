@@ -38,18 +38,6 @@ export struct AppsPage {
       parentStack?.pushPath(pageParams)
     }
 
-    // 导航栏标题
-    @Builder navTitle() {
-      Row() {
-        Text($r('app.string.Apps')).fontSize(24)
-          .fontColor($r('app.color.black'))
-          .fontWeight(600)
-      }
-      .width(BaseConstants.FULL_WIDTH)
-      .height(BaseConstants.FULL_HEIGHT)
-      .padding({ left: 18 })
-    }
-
     build() {
       Navigation(this.navPathStack) {
         Scroll() {

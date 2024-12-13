@@ -1,4 +1,4 @@
-import { AppItemModel, BaseConstants, StringUtils } from "jbase"
+import { AppItemModel, BaseConstants, StringUtils, ListDividerBorder } from "jbase"
 import { AllAppMock } from "../../mock/AppDataMock"
 
 interface typeParams {
@@ -30,7 +30,7 @@ export struct AppsManage {
                     Image(item.imageUrl).width(40).height(40).borderRadius(BaseConstants.BORDER_RADIUS)
                     Text(item.appName).fontSize(16).fontColor($r('app.color.black')).fontWeight(500).margin({ left: 10 })
                   }
-                  Button('添加').height(34).backgroundColor($r('app.color.white')).fontColor($r('app.color.black')).fontSize(14)
+                  Button($r('app.string.add_btn')).height(34).backgroundColor($r('app.color.white')).fontColor($r('app.color.black')).fontSize(14)
                     .borderRadius(BaseConstants.BORDER_RADIUS).border({ width: 1, color: $r('app.color.back_eee') })
                     .width(80)
                 }
@@ -43,7 +43,7 @@ export struct AppsManage {
           .padding({ top: 8, bottom: 8 })
           .backgroundColor($r('app.color.white'))
           .borderRadius(BaseConstants.BORDER_RADIUS)
-          .divider(new DividerTmp(1, 60, 0, $r('app.color.back_eee')))
+          .divider(new ListDividerBorder(1, 60, 0, $r('app.color.border_color')))
         }
         .width(BaseConstants.FULL_WIDTH)
         .padding(BaseConstants.MODULE_PADDING)
