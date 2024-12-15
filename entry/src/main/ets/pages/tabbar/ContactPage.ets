@@ -12,7 +12,6 @@ export struct ContactPage {
   private listScroller: Scroller = new Scroller();
 
   findContactsItemIndex(index: number): number {
-    console.log('currentIndex: ' + index)
     if (index < 0) return 0;
     const currentIndex = ContactsListData.findIndex(item => item.en_name[0].toUpperCase() === Alphabets[index])
     if (currentIndex === -1) {
@@ -55,7 +54,7 @@ export struct ContactPage {
             }
             .borderRadius(BaseConstants.BORDER_RADIUS)
             .backgroundColor($r('app.color.white'))
-            // 联系人分组，这里没有完善，有点弄不来，后面再说了 ！！！
+            // 联系人分组，这里没有完善，可以自行改造，增加 A B C D 这种，按这种分组，索引查找时才有效
             ListItemGroup({ header: this.itemTitle() }) {
               ForEach(ContactsListData, (item: ContactsDataModel, index: number) => {
                 if (index === 0) {
@@ -81,13 +80,14 @@ export struct ContactPage {
           .edgeEffect(EdgeEffect.None)
           .margin({ bottom: 50 })
           .onScrollIndex((index: number) => {
+            console.log('scrollIndex: ' + index)
             this.selectedIndex = index
           })
           // 索引器
           AlphabetIndexer({ arrayValue: Alphabets, selected: 0 })
             .onSelect((index: number) => {
               const currentIndex = this.findContactsItemIndex(index)
-              this.listScroller.scrollToIndex(currentIndex + 1)
+              this.listScroller.scrollToIndex(index, true)
             }).margin({ right: '16vp' }).color(Color.Black)
             .font({ size: '12pf', weight: 500, })
             .selected(this.selectedIndex)
