@@ -1,4 +1,4 @@
-import { BaseConstants } from "jbase"
+import { BaseConstants, CellList, CellListItemModel } from "jbase"
 
 @Component
 export struct MyPage {
@@ -22,58 +22,52 @@ export struct MyPage {
           }
         }.itemStyle()
         // 我的收藏
-        Row() {
-          SymbolGlyph($r('sys.symbol.star')).fontColor([$r('app.color.main_color')]).fontSize(22)
-          Text('我的收藏').fontSize(15).fontColor($r('app.color.black')).margin({ left: 10 }).flexGrow(1)
-          SymbolGlyph($r('sys.symbol.chevron_right')).fontColor([$r('app.color.gl_888')]).fontSize(24)
-        }.itemStyle().margin({ top: 14 })
+        CellList({ itemData: [
+          { text: '我的收藏',  iconName: $r('sys.symbol.star'), iconColor: $r('app.color.main_color') }
+        ]}).margin({ top: 14 })
         // 其它一些
-        Column() {
-          Row() {
-            SymbolGlyph($r('sys.symbol.info_circle')).fontColor([$r('app.color.main_color')]).fontSize(22)
-            Text('关于我们').fontSize(15).fontColor($r('app.color.black')).margin({ left: 10 }).flexGrow(1)
-            SymbolGlyph($r('sys.symbol.chevron_right')).fontColor([$r('app.color.gl_888')]).fontSize(24)
-          }.itemStyle()
-          Divider().margin({ left: 45 }).color($r('app.color.border_e9'))
-          Row() {
-            SymbolGlyph($r('sys.symbol.square_and_pencil')).fontColor([$r('app.color.main_color')]).fontSize(22)
-            Text('意见反馈').fontSize(15).fontColor($r('app.color.black')).margin({ left: 10 }).flexGrow(1)
-            SymbolGlyph($r('sys.symbol.chevron_right')).fontColor([$r('app.color.gl_888')]).fontSize(24)
-          }.itemStyle()
-          Divider().margin({ left: 45 }).color($r('app.color.border_e9'))
-          Row() {
-            SymbolGlyph($r('sys.symbol.questionmark_circle')).fontColor([$r('app.color.main_color')]).fontSize(22)
-            Text('帮助中心').fontSize(15).fontColor($r('app.color.black')).margin({ left: 10 }).flexGrow(1)
-            SymbolGlyph($r('sys.symbol.chevron_right')).fontColor([$r('app.color.gl_888')]).fontSize(24)
-          }.itemStyle()
-          Divider().margin({ left: 45 }).color($r('app.color.border_e9'))
-          Row() {
-            SymbolGlyph($r('sys.symbol.arrow_up_circle')).fontColor([$r('app.color.main_color')]).fontSize(22)
-            Text('版本检查').fontSize(15).fontColor($r('app.color.black')).margin({ left: 10 }).flexGrow(1)
-            SymbolGlyph($r('sys.symbol.chevron_right')).fontColor([$r('app.color.gl_888')]).fontSize(24)
-          }.itemStyle()
-          Divider().margin({ left: 45 }).color($r('app.color.border_e9'))
-          Row() {
-            SymbolGlyph($r('sys.symbol.share')).fontColor([$r('app.color.main_color')]).fontSize(22)
-            Text('分享给朋友').fontSize(15).fontColor($r('app.color.black')).margin({ left: 10 }).flexGrow(1)
-            SymbolGlyph($r('sys.symbol.chevron_right')).fontColor([$r('app.color.gl_888')]).fontSize(24)
-          }.itemStyle()
-        }.listStyle().margin({ top: 14 })
+        CellList({ itemData: [
+          { id: 'about', text: '关于我们', iconName: $r('sys.symbol.info_circle'), iconColor: $r('app.color.main_color') },
+          { id: 'feedback', text: '意见反馈', iconName: $r('sys.symbol.square_and_pencil'), iconColor: $r('app.color.main_color') },
+          { id: 'help', text: '帮助中心', iconName: $r('sys.symbol.questionmark_circle'), iconColor: $r('app.color.main_color') },
+          { id: 'version', text: '版本检查', iconName: $r('sys.symbol.arrow_up_circle'), iconColor: $r('app.color.main_color') },
+          { id: 'share', text: '分享给朋友', iconName: $r('sys.symbol.share'), iconColor: $r('app.color.main_color') },
+        ]}).margin({ top: 14 })
         // 设置
+        CellList({ itemData: [
+          { text: '设置',  iconName: $r('sys.symbol.gearshape'), iconColor: $r('app.color.main_color') }
+        ], onItemClick: (item: CellListItemModel, index: number) => {
+
+        }}).margin({ top: 14 })
+        // 退出登录
         Row() {
-          SymbolGlyph($r('sys.symbol.gearshape')).fontColor([$r('app.color.main_color')]).fontSize(22)
-          Text('设置').fontSize(15).fontColor($r('app.color.black')).margin({ left: 10 }).flexGrow(1)
-          SymbolGlyph($r('sys.symbol.chevron_right')).fontColor([$r('app.color.gl_888')]).fontSize(24)
-        }.itemStyle().margin({ top: 14 })
+          Text('退出登录').fontSize(16).fontColor($r('app.color.red_color'))
+        }.itemStyle().margin({ top: 18 }).justifyContent(FlexAlign.Center)
+        .onClick(() => {
+          AlertDialog.show(
+            {
+              title: '温馨提示',
+              message: '是否确认退出当前账号？',
+              cornerRadius: BaseConstants.BORDER_RADIUS,
+              primaryButton: {
+                value: '取消',
+                action: () => {
+                }
+              },
+              secondaryButton: {
+                value: '确定',
+                action: () => {
+
+                }
+              }
+            }
+          )
+        })
       }
       .width(BaseConstants.FULL_WIDTH)
       .padding(BaseConstants.MODULE_PADDING)
     }.title($r('app.string.my'), { backgroundColor: $r('app.color.white') })
     .titleMode(NavigationTitleMode.Mini).hideBackButton(true).backgroundColor($r('app.color.back_color'))
-  }
-
-  @Styles iconStyle() {
-
   }
 
   @Styles itemStyle() {
@@ -82,12 +76,6 @@ export struct MyPage {
     .borderRadius(BaseConstants.BORDER_RADIUS)
     .padding({ top: BaseConstants.MODULE_PADDING, bottom: BaseConstants.MODULE_PADDING, left: 16, right: 16 })
     .clickEffect({ level: ClickEffectLevel.LIGHT, scale: 0.9 })
-  }
-
-  @Styles listStyle() {
-    .width(BaseConstants.FULL_WIDTH)
-    .backgroundColor($r('app.color.white'))
-    .borderRadius(BaseConstants.BORDER_RADIUS)
   }
 
 }

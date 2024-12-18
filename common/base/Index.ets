@@ -12,3 +12,5 @@ export { AppsModule } from "./src/main/ets/components/AppsModule";
 export { StringUtils } from "./src/main/ets/utils/StringUtils";
 // 列表工具
 export { ListDividerBorder } from "./src/main/ets/utils/ListUtils";
+// 自己写的列表
+export { CellListItem, CellList, CellListItemModel } from "./src/main/ets/components/CellList";
