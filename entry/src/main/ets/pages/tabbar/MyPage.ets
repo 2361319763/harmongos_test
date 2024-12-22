@@ -3,7 +3,14 @@ import { BaseConstants, CellList, CellListItemModel } from "jbase"
 @Component
 export struct MyPage {
   @State private navPathStack: NavPathStack = new NavPathStack()
-  @State rootPath: string = ''
+  @State textColor: Resource | null = $r('app.color.black')
+  @State iconColor: Resource | null = $r('app.color.main_color')
+  @StorageProp('currentColorMode') @Watch('onColorModeChange') currentMode: number = 0;
+
+  onColorModeChange(changedPropertyName: string) {
+    this.textColor = $r('app.color.black')
+    this.iconColor = $r('app.color.main_color')
+  }
 
   build() {
     Navigation(this.navPathStack) {
@@ -23,21 +30,22 @@ export struct MyPage {
         }.itemStyle()
         // 我的收藏
         CellList({ itemData: [
-          { text: '我的收藏',  iconName: $r('sys.symbol.star'), iconColor: $r('app.color.main_color') }
-        ]}).margin({ top: 14 })
+          { text: '我的收藏',  iconName: $r('sys.symbol.star') }
+        ], textColor: this.textColor, iconColor: this.iconColor }).margin({ top: 14 })
         // 其它一些
         CellList({ itemData: [
-          { id: 'about', text: '关于我们', iconName: $r('sys.symbol.info_circle'), iconColor: $r('app.color.main_color') },
-          { id: 'feedback', text: '意见反馈', iconName: $r('sys.symbol.square_and_pencil'), iconColor: $r('app.color.main_color') },
-          { id: 'help', text: '帮助中心', iconName: $r('sys.symbol.questionmark_circle'), iconColor: $r('app.color.main_color') },
-          { id: 'version', text: '版本检查', iconName: $r('sys.symbol.arrow_up_circle'), iconColor: $r('app.color.main_color') },
-          { id: 'share', text: '分享给朋友', iconName: $r('sys.symbol.share'), iconColor: $r('app.color.main_color') },
-        ]}).margin({ top: 14 })
+          { id: 'about', text: '关于我们', iconName: $r('sys.symbol.info_circle') },
+          { id: 'feedback', text: '意见反馈', iconName: $r('sys.symbol.square_and_pencil') },
+          { id: 'help', text: '帮助中心', iconName: $r('sys.symbol.questionmark_circle') },
+          { id: 'version', text: '版本检查', iconName: $r('sys.symbol.arrow_up_circle') },
+          { id: 'share', text: '分享给朋友', iconName: $r('sys.symbol.share') },
+        ], textColor: this.textColor, iconColor: this.iconColor}).margin({ top: 14 })
         // 设置
         CellList({ itemData: [
-          { text: '设置',  iconName: $r('sys.symbol.gearshape'), iconColor: $r('app.color.main_color') }
-        ], onItemClick: (item: CellListItemModel, index: number) => {
-
+          { text: '设置',  iconName: $r('sys.symbol.gearshape') }
+        ], textColor: this.textColor, iconColor: this.iconColor, onItemClick: (item: CellListItemModel, index: number) => {
+          let parentStack = this.navPathStack.getParent()
+          parentStack?.pushPathByName('darkSetting', null)
         }}).margin({ top: 14 })
         // 退出登录
         Row() {

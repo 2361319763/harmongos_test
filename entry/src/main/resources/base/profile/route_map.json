@@ -7,6 +7,12 @@
       "data": {
         "type": "add"
       }
+    },
+    {
+      "name": "darkSetting",
+      "pageSourceFile": "src/main/ets/pages/system/DarkSetting.ets",
+      "buildFunction": "DarkSettingBuilder",
+      "data": { }
     }
   ]
 }

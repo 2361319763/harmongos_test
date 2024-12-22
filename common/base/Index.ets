@@ -14,3 +14,5 @@ export { StringUtils } from "./src/main/ets/utils/StringUtils";
 export { ListDividerBorder } from "./src/main/ets/utils/ListUtils";
 // 自己写的列表
 export { CellListItem, CellList, CellListItemModel } from "./src/main/ets/components/CellList";
+// 深色主题设置
+export { setAutoColorMode, setDarkColorMode, setLightColorMode, setAppColorMode } from "./src/main/ets/utils/ColorModeUtils";

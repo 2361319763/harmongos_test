@@ -53,7 +53,6 @@ export struct ContactPage {
               .padding({ bottom: 6 })
             }
             .borderRadius(BaseConstants.BORDER_RADIUS)
-            .backgroundColor($r('app.color.white'))
             // 联系人分组，这里没有完善，可以自行改造，增加 A B C D 这种，按这种分组，索引查找时才有效
             ListItemGroup({ header: this.itemTitle() }) {
               ForEach(ContactsListData, (item: ContactsDataModel, index: number) => {
@@ -88,7 +87,7 @@ export struct ContactPage {
             .onSelect((index: number) => {
               const currentIndex = this.findContactsItemIndex(index)
               this.listScroller.scrollToIndex(index, true)
-            }).margin({ right: '16vp' }).color(Color.Black)
+            }).margin({ right: '16vp' }).color($r('app.color.black'))
             .font({ size: '12pf', weight: 500, })
             .selected(this.selectedIndex)
         }
@@ -99,6 +98,6 @@ export struct ContactPage {
   }
 
   @Styles listItemStyle() {
-    .backgroundColor(Color.White)
+    .backgroundColor($r('app.color.white'))
   }
 }

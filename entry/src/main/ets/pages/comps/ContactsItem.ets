@@ -18,7 +18,7 @@ export struct ContactsItem {
               .borderRadius(BaseConstants.BORDER_RADIUS)
           } else {
             Row() {
-              SymbolGlyph(this.icon).fontColor([$r('app.color.white')]).fontSize(24)
+              SymbolGlyph(this.icon).fontColor(['#ffffff']).fontSize(24)
             }
             .justifyContent(FlexAlign.Center)
             .height(this.iconSize)
@@ -37,6 +37,8 @@ export struct ContactsItem {
       .width(BaseConstants.FULL_WIDTH)
       .padding({ top: 8, bottom: 8 })
       .clickEffect({ level: ClickEffectLevel.LIGHT, scale: 0.9 })
+      .backgroundColor($r('app.color.white'))
+      .borderRadius(BaseConstants.BORDER_RADIUS)
       if (this.showBorder) {
         Divider().color($r('app.color.border_e9'))
           .margin({ left: 60 })

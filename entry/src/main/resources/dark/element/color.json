@@ -3,6 +3,18 @@
     {
       "name": "start_back",
       "value": "#000000"
+    },
+    {
+      "name": "main_color",
+      "value": "#2999FB"
+    },
+    {
+      "name": "back_color",
+      "value": "#111214"
+    },
+    {
+      "name": "red_color",
+      "value": "#e03636"
     }
   ]
 }

@@ -1,7 +1,8 @@
-import { AbilityConstant, ConfigurationConstant, UIAbility, Want } from '@kit.AbilityKit';
+import { AbilityConstant, common, Configuration, ConfigurationConstant, UIAbility, Want } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { font, window } from '@kit.ArkUI';
 import { CustomTheme, CustomColors, ThemeControl } from '@kit.ArkUI';
+import { setAppColorMode } from 'jbase';
 // 自定义主题颜色
 class MainColors implements CustomColors {
   brand = $r('app.color.main_color')
@@ -16,7 +17,6 @@ class PageCustomTheme implements CustomTheme {
 
 export default class EntryAbility extends UIAbility {
   onCreate(want: Want, launchParam: AbilityConstant.LaunchParam): void {
-    this.context.getApplicationContext().setColorMode(ConfigurationConstant.ColorMode.COLOR_MODE_NOT_SET);
     // 创建实例
     const MainColorsTheme = new PageCustomTheme(new MainColors());
     ThemeControl.setDefaultTheme(MainColorsTheme);
@@ -30,7 +30,6 @@ export default class EntryAbility extends UIAbility {
   onWindowStageCreate(windowStage: window.WindowStage): void {
     // Main window is created, set main page for this ability
     hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onWindowStageCreate');
-
     windowStage.loadContent('pages/Index', (err) => {
       if (err.code) {
         hilog.error(0x0000, 'testTag', 'Failed to load the content. Cause: %{public}s', JSON.stringify(err) ?? '');
@@ -41,7 +40,8 @@ export default class EntryAbility extends UIAbility {
         familySrc: '/fonts/iconfont.ttf'
       })
       hilog.info(0x0000, 'registerFont', '注册字体成功');
-      hilog.info(0x0000, 'testTag', 'Succeeded in loading the content.');
+      hilog.info(0x0000, 'testTag', 'Succeeded in loading the content.')
+      setAppColorMode(this.context)
     });
   }
 
@@ -58,5 +58,12 @@ export default class EntryAbility extends UIAbility {
   onBackground(): void {
     // Ability has back to background
     hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onBackground');
+  }
+
+  onConfigurationUpdate(newConfig: Configuration): void {
+    const currentColorMode: ConfigurationConstant.ColorMode | undefined = AppStorage.get('currentColorMode');
+    if (currentColorMode !== newConfig.colorMode) {
+      AppStorage.setOrCreate<ConfigurationConstant.ColorMode>('currentColorMode', newConfig.colorMode);
+    }
   }
 }

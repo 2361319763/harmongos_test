@@ -71,8 +71,7 @@ export struct AppsPage {
         }.scrollBar(BarState.Off)
       }
       .title($r('app.string.apps'), {
-        backgroundColor: $r('app.color.white'),
-        backgroundBlurStyle: BlurStyle.Thin,
+        backgroundColor: $r('app.color.white')
       })
       .titleMode(NavigationTitleMode.Mini)
       .hideBackButton(true)

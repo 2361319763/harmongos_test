@@ -5,17 +5,17 @@ export struct CellListItem {
   // 是否显示图标
   @Prop showIcon: boolean = true
   // 图标颜色
-  @Prop iconColor: Resource | null = null
+  @Link iconColor: Resource | null
   // 图标名称
-  @Prop iconName: Resource | null = null
+  @Prop iconName: Resource | null
   // 图标大小
   @Prop iconSize: number = 22
   // 文本内容
-  @Prop text: string | Resource = '-'
+  @Prop text: string | Resource
   // 文本大小
   @Prop textSize: number = 16
   // 文本颜色
-  @Prop textColor: Resource | string = $r('app.color.black')
+  @Link textColor: Resource | null
   // 显示右侧箭头
   @Prop showArrow: boolean = true
 
@@ -43,25 +43,34 @@ export struct CellListItem {
 export interface CellListItemModel {
   id?: string,
   showIcon?: boolean
-  iconColor?: Resource | null
   iconName?: Resource | null
   iconSize?: number
   text: string | Resource
   textSize?: number
-  textColor?: Resource | string
   showArrow?: boolean
 }
 
 @Component
 export struct CellList {
   @Prop itemData: CellListItemModel[]
+  @Link textColor: Resource | null
+  @Link iconColor: Resource | null
   // 列表点击事件
   onItemClick?: (item: CellListItemModel, index: number) => void
   build() {
     Column() {
       if (this.itemData.length > 0) {
         ForEach(this.itemData, (item: CellListItemModel, index: number) => {
-          CellListItem(item).onClick(() => {
+          CellListItem({
+            showIcon: item.showIcon,
+            iconName: item.iconName,
+            iconSize: item.iconSize,
+            text: item.text,
+            textSize: item.textSize,
+            showArrow: item.showArrow,
+            textColor: this.textColor,
+            iconColor: this.iconColor
+          }).onClick(() => {
             this.onItemClick && this.onItemClick(item, index)
           })
           if (index != this.itemData.length - 1) {
