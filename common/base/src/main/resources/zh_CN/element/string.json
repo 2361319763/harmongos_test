@@ -1,8 +1,68 @@
 {
   "string": [
     {
-      "name": "search_text",
+      "name": "all_search",
+      "value": "全局搜索"
+    },
+    {
+      "name": "search",
       "value": "搜索"
+    },
+    {
+      "name": "refresh_success",
+      "value": "刷新成功"
+    },
+    {
+      "name": "save_success",
+      "value": "保存成功"
+    },
+    {
+      "name": "input_user",
+      "value": "请输入用户名"
+    },
+    {
+      "name": "input_pass",
+      "value": "请输入密码"
+    },
+    {
+      "name": "login",
+      "value": "登 录"
+    },
+    {
+      "name": "logining",
+      "value": "登录中..."
+    },
+    {
+      "name": "login_success",
+      "value": "登录成功"
+    },
+    {
+      "name": "tips",
+      "value": "温馨提示"
+    },
+    {
+      "name": "yesbtn",
+      "value": "确定"
+    },
+    {
+      "name": "nobtn",
+      "value": "取消"
+    },
+    {
+      "name": "save",
+      "value": "保存"
+    },
+    {
+      "name": "nopage",
+      "value": "敬请期待"
+    },
+    {
+      "name": "cfg_err",
+      "value": "加载错误"
+    },
+    {
+      "name": "vertip",
+      "value": "已是最新版本"
     },
     {
       "name": "notice_title",

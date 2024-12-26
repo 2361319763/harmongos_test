@@ -1,8 +1,68 @@
 {
   "string": [
     {
-      "name": "search_text",
+      "name": "all_search",
+      "value": "Global Search"
+    },
+    {
+      "name": "search",
       "value": "Search"
+    },
+    {
+      "name": "refresh_success",
+      "value": "Refresh Successful"
+    },
+    {
+      "name": "save_success",
+      "value": "Save Successful"
+    },
+    {
+      "name": "input_user",
+      "value": "Pls enter your username"
+    },
+    {
+      "name": "input_pass",
+      "value": "Pls enter your password"
+    },
+    {
+      "name": "login",
+      "value": "Login"
+    },
+    {
+      "name": "logining",
+      "value": "Logging in..."
+    },
+    {
+      "name": "login_success",
+      "value": "Login Successful"
+    },
+    {
+      "name": "tips",
+      "value": "Warm Prompt"
+    },
+    {
+      "name": "yesbtn",
+      "value": "Confirm"
+    },
+    {
+      "name": "nobtn",
+      "value": "Cancel"
+    },
+    {
+      "name": "save",
+      "value": "Save"
+    },
+    {
+      "name": "nopage",
+      "value": "Coming Soon"
+    },
+    {
+      "name": "cfg_err",
+      "value": "Load Error"
+    },
+    {
+      "name": "vertip",
+      "value": "Already the latest version"
     },
     {
       "name": "notice_title",

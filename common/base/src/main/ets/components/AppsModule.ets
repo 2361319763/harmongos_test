@@ -40,10 +40,12 @@ export struct AppsModule {
   build() {
     Column() {
       // 应用模块
-      Flex({ justifyContent: FlexAlign.SpaceBetween }) {
-        Text(this.moduleTitle).fontSize(18).fontColor($r('app.color.black')).fontWeight(500)
+      Flex() {
+        Text(this.moduleTitle).fontSize(18).fontColor($r('app.color.black')).fontWeight(500).flexGrow(1)
         if (this.showEditBtn) {
-          Text(`\ue6ef ${StringUtils.getResStr($r('app.string.edit_app'), this)}`).fontSize(14)
+          Text('\ue6ef').fontSize(14).fontColor($r('app.color.gl_888')).fontFamily('iconfont')
+            .padding({ top: 5, bottom: 4 })
+          Text(`${StringUtils.getResStr($r('app.string.edit_app'), this)}`).fontSize(14)
             .fontColor($r('app.color.gl_888')).fontFamily('iconfont')
             .padding(4)
             .onClick(() => {

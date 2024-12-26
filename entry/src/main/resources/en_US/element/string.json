@@ -43,6 +43,50 @@
     {
       "name": "ct_org",
       "value": "Organization"
+    },
+    {
+      "name": "my_title",
+      "value": "My"
+    },
+    {
+      "name": "my_favorites",
+      "value": "My Favorites"
+    },
+    {
+      "name": "my_about_us",
+      "value": "About Us"
+    },
+    {
+      "name": "my_feedback",
+      "value": "Feedback"
+    },
+    {
+      "name": "my_help_center",
+      "value": "Help Center"
+    },
+    {
+      "name": "my_version",
+      "value": "Version Check"
+    },
+    {
+      "name": "my_share",
+      "value": "Share with Friends"
+    },
+    {
+      "name": "my_settings",
+      "value": "Settings"
+    },
+    {
+      "name": "my_logout",
+      "value": "Logout"
+    },
+    {
+      "name": "my_nologin",
+      "value": "Not Logged In"
+    },
+    {
+      "name": "my_logout_tips",
+      "value": "Are you sure you want to log out of your current account?"
     }
   ]
 }

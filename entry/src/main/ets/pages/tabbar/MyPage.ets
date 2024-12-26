@@ -30,40 +30,40 @@ export struct MyPage {
         }.itemStyle()
         // 我的收藏
         CellList({ itemData: [
-          { text: '我的收藏',  iconName: $r('sys.symbol.star') }
+          { text: $r('app.string.my_favorites'),  iconName: $r('sys.symbol.star') }
         ], textColor: this.textColor, iconColor: this.iconColor }).margin({ top: 14 })
         // 其它一些
         CellList({ itemData: [
-          { id: 'about', text: '关于我们', iconName: $r('sys.symbol.info_circle') },
-          { id: 'feedback', text: '意见反馈', iconName: $r('sys.symbol.square_and_pencil') },
-          { id: 'help', text: '帮助中心', iconName: $r('sys.symbol.questionmark_circle') },
-          { id: 'version', text: '版本检查', iconName: $r('sys.symbol.arrow_up_circle') },
-          { id: 'share', text: '分享给朋友', iconName: $r('sys.symbol.share') },
+          { id: 'about', text: $r('app.string.my_about_us'), iconName: $r('sys.symbol.info_circle') },
+          { id: 'feedback', text: $r('app.string.my_feedback'), iconName: $r('sys.symbol.square_and_pencil') },
+          { id: 'help', text: $r('app.string.my_help_center'), iconName: $r('sys.symbol.questionmark_circle') },
+          { id: 'version', text: $r('app.string.my_version'), iconName: $r('sys.symbol.arrow_up_circle') },
+          { id: 'share', text: $r('app.string.my_share'), iconName: $r('sys.symbol.share') },
         ], textColor: this.textColor, iconColor: this.iconColor}).margin({ top: 14 })
         // 设置
         CellList({ itemData: [
-          { text: '设置',  iconName: $r('sys.symbol.gearshape') }
+          { text: $r('app.string.my_settings'),  iconName: $r('sys.symbol.gearshape') }
         ], textColor: this.textColor, iconColor: this.iconColor, onItemClick: (item: CellListItemModel, index: number) => {
           let parentStack = this.navPathStack.getParent()
           parentStack?.pushPathByName('darkSetting', null)
         }}).margin({ top: 14 })
         // 退出登录
         Row() {
-          Text('退出登录').fontSize(16).fontColor($r('app.color.red_color'))
+          Text($r('app.string.my_logout')).fontSize(16).fontColor($r('app.color.red_color'))
         }.itemStyle().margin({ top: 18 }).justifyContent(FlexAlign.Center)
         .onClick(() => {
           AlertDialog.show(
             {
-              title: '温馨提示',
-              message: '是否确认退出当前账号？',
+              title: $r('app.string.tips'),
+              message: $r('app.string.my_logout_tips'),
               cornerRadius: BaseConstants.BORDER_RADIUS,
               primaryButton: {
-                value: '取消',
+                value: $r('app.string.nobtn'),
                 action: () => {
                 }
               },
               secondaryButton: {
-                value: '确定',
+                value: $r('app.string.yesbtn'),
                 action: () => {
 
                 }

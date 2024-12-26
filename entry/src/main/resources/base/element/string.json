@@ -43,6 +43,50 @@
     {
       "name": "ct_org",
       "value": "组织机构"
+    },
+    {
+      "name": "my_title",
+      "value": "我的"
+    },
+    {
+      "name": "my_favorites",
+      "value": "我的收藏"
+    },
+    {
+      "name": "my_about_us",
+      "value": "关于我们"
+    },
+    {
+      "name": "my_feedback",
+      "value": "意见反馈"
+    },
+    {
+      "name": "my_help_center",
+      "value": "帮助中心"
+    },
+    {
+      "name": "my_version",
+      "value": "版本检查"
+    },
+    {
+      "name": "my_share",
+      "value": "分享给朋友"
+    },
+    {
+      "name": "my_settings",
+      "value": "设置"
+    },
+    {
+      "name": "my_logout",
+      "value": "退出登录"
+    },
+    {
+      "name": "my_nologin",
+      "value": "未登录"
+    },
+    {
+      "name": "my_logout_tips",
+      "value": "是否退出当前账号?"
     }
   ]
 }

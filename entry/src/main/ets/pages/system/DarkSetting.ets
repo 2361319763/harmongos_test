@@ -1,5 +1,5 @@
 import { common } from '@kit.AbilityKit';
-import { setDarkColorMode, setLightColorMode, setAutoColorMode } from 'jbase';
+import { setDarkColorMode, setLightColorMode, setAutoColorMode, BaseConstants } from 'jbase';
 
 @Builder
 export function DarkSettingBuilder(name: string, param: Object) {
@@ -25,7 +25,7 @@ export struct DarkModeSetting {
           .fontColor($r('app.color.gl_999'))
           .fontSize(14)
           .fontWeight(400)
-          .lineHeight(20)
+          .lineHeight(30)
           .margin({ bottom: 16, top: 8 })
           .width('100%')
           .textAlign(TextAlign.Start)
@@ -55,9 +55,9 @@ export struct DarkModeSetting {
         .height(56)
         .backgroundColor($r('app.color.white'))
         .margin({ bottom: 12 })
-        .padding({ left: 12, right: 12 })
+        .padding({ left: 14, right: 14 })
         .justifyContent(FlexAlign.SpaceBetween)
-        .borderRadius(12)
+        .borderRadius(BaseConstants.BORDER_RADIUS)
 
         Row() {
           Text('深色模式')
@@ -79,9 +79,9 @@ export struct DarkModeSetting {
         .width('100%')
         .height(56)
         .backgroundColor($r('app.color.white'))
-        .padding({ left: 12, right: 12 })
+        .padding({ left: 14, right: 14 })
         .justifyContent(FlexAlign.SpaceBetween)
-        .borderRadius(12)
+        .borderRadius(BaseConstants.BORDER_RADIUS)
       }
       .padding({ left: 16, right: 16 })
     }

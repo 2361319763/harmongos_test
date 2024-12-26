@@ -6,7 +6,7 @@ import { BaseConstants } from "../constants/BaseConstants"
 @Component
 export struct SearchInput {
   // 搜索框占位符
-  @Prop plText: Resource = $r('app.string.search_text')
+  @Prop plText: Resource = $r('app.string.search')
   // 组件圆角
   @Prop compRadius: number = BaseConstants.BORDER_RADIUS
   // 组件背景色
