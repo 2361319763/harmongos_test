@@ -45,7 +45,7 @@ export struct MyPage {
           { text: $r('app.string.my_settings'),  iconName: $r('sys.symbol.gearshape') }
         ], textColor: this.textColor, iconColor: this.iconColor, onItemClick: (item: CellListItemModel, index: number) => {
           let parentStack = this.navPathStack.getParent()
-          parentStack?.pushPathByName('darkSetting', null)
+          parentStack?.pushPathByName('systemSetting', null)
         }}).margin({ top: 14 })
         // 退出登录
         Row() {

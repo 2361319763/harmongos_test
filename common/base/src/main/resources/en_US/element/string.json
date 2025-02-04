@@ -91,6 +91,30 @@
     {
       "name": "added_btn",
       "value": "Added"
+    },
+    {
+      "name": "setting_title",
+      "value": "Settings"
+    },
+    {
+      "name": "dark_mode",
+      "value": "Dark Mode"
+    },
+    {
+      "name": "lang_setting",
+      "value": "Languages"
+    },
+    {
+      "name": "dark_tip",
+      "value": "Automatically switch between dark and light modes based on system settings after enabling."
+    },
+    {
+      "name": "lang_tip",
+      "value": "Automatically sync language with system settings after enabling."
+    },
+    {
+      "name": "follow_system",
+      "value": "Follow system"
     }
   ]
 }

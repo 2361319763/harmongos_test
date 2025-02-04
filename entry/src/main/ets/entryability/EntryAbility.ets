@@ -1,8 +1,8 @@
-import { AbilityConstant, common, Configuration, ConfigurationConstant, UIAbility, Want } from '@kit.AbilityKit';
+import { AbilityConstant, Configuration, ConfigurationConstant, UIAbility, Want } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { font, window } from '@kit.ArkUI';
 import { CustomTheme, CustomColors, ThemeControl } from '@kit.ArkUI';
-import { setAppColorMode } from 'jbase';
+import { setAppColorMode, setAppLanguage } from 'jbase';
 // 自定义主题颜色
 class MainColors implements CustomColors {
   brand = $r('app.color.main_color')
@@ -41,7 +41,10 @@ export default class EntryAbility extends UIAbility {
       })
       hilog.info(0x0000, 'registerFont', '注册字体成功');
       hilog.info(0x0000, 'testTag', 'Succeeded in loading the content.')
+      // 设置深色模式
       setAppColorMode(this.context)
+      // 设置语言
+      setAppLanguage(this.context)
     });
   }
 

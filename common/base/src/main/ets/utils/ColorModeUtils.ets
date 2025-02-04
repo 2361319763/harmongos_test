@@ -20,20 +20,18 @@ export const setLightColorMode = (context: common.UIAbilityContext) => {
  * 设置应用深色模式
  */
 export const setAppColorMode = (context: common.UIAbilityContext) => {
-  PersistentStorage.persistProp('currentColorMode', context.config.colorMode)
   PersistentStorage.persistProp('isFollowSystemSetting', true)
   PersistentStorage.persistProp('enableDarkMode', false)
-  const currentColorMode: ConfigurationConstant.ColorMode | undefined = AppStorage.get('currentColorMode');
   const isFollowSystemSetting: boolean | undefined = AppStorage.get('isFollowSystemSetting');
   const enableDarkMode: boolean | undefined = AppStorage.get('enableDarkMode');
-  if (currentColorMode !== undefined && isFollowSystemSetting !== undefined && enableDarkMode !== undefined) {
+  if (isFollowSystemSetting !== undefined && enableDarkMode !== undefined) {
     if (isFollowSystemSetting) {
       context.getApplicationContext().setColorMode(ConfigurationConstant.ColorMode.COLOR_MODE_NOT_SET);
     } else {
       if (enableDarkMode) {
         context.getApplicationContext().setColorMode(ConfigurationConstant.ColorMode.COLOR_MODE_DARK);
       } else {
-        context.getApplicationContext().setColorMode(ConfigurationConstant.ColorMode.COLOR_MODE_NOT_SET);
+        context.getApplicationContext().setColorMode(ConfigurationConstant.ColorMode.COLOR_MODE_LIGHT);
       }
     }
   }

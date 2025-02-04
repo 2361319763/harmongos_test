@@ -29,9 +29,17 @@ interface ContactsDataModel {
 }
 
 /**
+ * 语言数据
+ */
+interface LanguageModel {
+  name: Resource | string;
+  code: string;
+}
+
+/**
  * 联系人首字母
  */
 const Alphabets: string[] = ['#', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K',
   'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
 
-export { NoticeBarModel, AppItemModel, ContactsDataModel, Alphabets }
+export { NoticeBarModel, AppItemModel, ContactsDataModel, LanguageModel, Alphabets }

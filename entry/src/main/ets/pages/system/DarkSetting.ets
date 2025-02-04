@@ -1,5 +1,6 @@
 import { common } from '@kit.AbilityKit';
-import { setDarkColorMode, setLightColorMode, setAutoColorMode, BaseConstants } from 'jbase';
+import { setDarkColorMode, setLightColorMode, setAutoColorMode, BaseConstants, StringUtils,
+  PageTitleBuilder } from 'jbase';
 
 @Builder
 export function DarkSettingBuilder(name: string, param: Object) {
@@ -10,7 +11,6 @@ export function DarkSettingBuilder(name: string, param: Object) {
 export struct DarkModeSetting {
   @StorageProp('enableDarkMode') enableDarkMode: boolean = false;
   @StorageProp('isFollowSystemSetting') isFollowSystemSetting: boolean = true;
-  @StorageProp('currentColorMode') currentColorMode: number = 0;
   private context: common.UIAbilityContext = getContext(this) as common.UIAbilityContext;
 
   aboutToDisappear(): void {
@@ -21,20 +21,13 @@ export struct DarkModeSetting {
   build() {
     NavDestination() {
       Column() {
-        Text('跟随系统设置开启后根据系统设置同步切换深/浅模式')
-          .fontColor($r('app.color.gl_999'))
-          .fontSize(14)
-          .fontWeight(400)
-          .lineHeight(30)
-          .margin({ bottom: 16, top: 8 })
-          .width('100%')
-          .textAlign(TextAlign.Start)
+        Text($r('app.string.dark_tip'))
+          .fontColor($r('app.color.gl_999')).fontSize(14).fontWeight(400)
+          .lineHeight(24).margin({ bottom: 16, top: 8 })
+          .width(BaseConstants.FULL_WIDTH).padding({ left: 6 })
         Row() {
-          Text('跟随系统设置')
-            .fontColor($r('app.color.black'))
-            .fontSize(16)
-            .fontWeight(500)
-            .lineHeight(22)
+          Text($r('app.string.follow_system')).fontColor($r('app.color.black'))
+            .fontSize(16).fontWeight(500).lineHeight(22)
           Toggle({ type: ToggleType.Switch, isOn: this.isFollowSystemSetting })
             .onChange((isOn: boolean) => {
               if (isOn) {
@@ -51,20 +44,13 @@ export struct DarkModeSetting {
               }
             })
         }
-        .width('100%')
-        .height(56)
-        .backgroundColor($r('app.color.white'))
-        .margin({ bottom: 12 })
-        .padding({ left: 14, right: 14 })
+        .itemStyle()
         .justifyContent(FlexAlign.SpaceBetween)
-        .borderRadius(BaseConstants.BORDER_RADIUS)
+        .margin({ bottom: BaseConstants.MODULE_PADDING })
 
         Row() {
-          Text('深色模式')
-            .fontColor($r('app.color.black'))
-            .fontSize(16)
-            .fontWeight(500)
-            .lineHeight(22)
+          Text($r('app.string.dark_mode')).fontColor($r('app.color.black')).fontSize(16)
+            .fontWeight(500).lineHeight(22)
           Toggle({ type: ToggleType.Switch, isOn: this.enableDarkMode })
             .onChange((isOn: boolean) => {
               this.enableDarkMode = isOn;
@@ -76,16 +62,20 @@ export struct DarkModeSetting {
               }
             })
         }
-        .width('100%')
-        .height(56)
-        .backgroundColor($r('app.color.white'))
-        .padding({ left: 14, right: 14 })
+        .itemStyle()
         .justifyContent(FlexAlign.SpaceBetween)
-        .borderRadius(BaseConstants.BORDER_RADIUS)
       }
       .padding({ left: 16, right: 16 })
     }
-    .title('主题设置')
+    .title(PageTitleBuilder($r('app.string.dark_mode')))
     .backgroundColor($r('app.color.back_color'))
+  }
+
+  @Styles itemStyle() {
+    .width(BaseConstants.FULL_WIDTH)
+    .height(56)
+    .backgroundColor($r('app.color.white'))
+    .padding({ left: BaseConstants.MODULE_PADDING + 6, right: BaseConstants.MODULE_PADDING })
+    .borderRadius(BaseConstants.BORDER_RADIUS)
   }
 }

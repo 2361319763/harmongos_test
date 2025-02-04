@@ -91,6 +91,30 @@
     {
       "name": "added_btn",
       "value": "已添加"
+    },
+    {
+      "name": "setting_title",
+      "value": "设置"
+    },
+    {
+      "name": "dark_mode",
+      "value": "深色模式"
+    },
+    {
+      "name": "lang_setting",
+      "value": "语言设置"
+    },
+    {
+      "name": "dark_tip",
+      "value": "跟随系统设置开启后将自动同步切换深/浅模式"
+    },
+    {
+      "name": "lang_tip",
+      "value": "跟随系统设置开启后将自动同步切换语言"
+    },
+    {
+      "name": "follow_system",
+      "value": "跟随系统设置"
     }
   ]
 }

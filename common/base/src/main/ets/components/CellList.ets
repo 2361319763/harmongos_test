@@ -35,7 +35,7 @@ export struct CellListItem {
     .width(BaseConstants.FULL_WIDTH)
     .backgroundColor($r('app.color.white'))
     .borderRadius(BaseConstants.BORDER_RADIUS)
-    .padding({ top: BaseConstants.MODULE_PADDING, bottom: BaseConstants.MODULE_PADDING, left: 16, right: 16 })
+    .padding(BaseConstants.MODULE_PADDING)
     .clickEffect({ level: ClickEffectLevel.LIGHT, scale: 0.9 })
   }
 }
@@ -74,7 +74,7 @@ export struct CellList {
             this.onItemClick && this.onItemClick(item, index)
           })
           if (index != this.itemData.length - 1) {
-            Divider().margin({ left: 45 }).color($r('app.color.border_e9'))
+            Divider().margin({ left: item.iconName ? 45 : 23 }).color($r('app.color.border_e9'))
           }
         })
       }

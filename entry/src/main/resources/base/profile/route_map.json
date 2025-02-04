@@ -9,9 +9,21 @@
       }
     },
     {
+      "name": "systemSetting",
+      "pageSourceFile": "src/main/ets/pages/system/SystemSetting.ets",
+      "buildFunction": "SystemSettingBuilder",
+      "data": { }
+    },
+    {
       "name": "darkSetting",
       "pageSourceFile": "src/main/ets/pages/system/DarkSetting.ets",
       "buildFunction": "DarkSettingBuilder",
+      "data": { }
+    },
+    {
+      "name": "langSetting",
+      "pageSourceFile": "src/main/ets/pages/system/LangSetting.ets",
+      "buildFunction": "LangSettingBuilder",
       "data": { }
     }
   ]

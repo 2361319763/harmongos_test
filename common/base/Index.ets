@@ -1,7 +1,7 @@
 // 基础一些字典
 export { BaseConstants, CurrentFeature, CurrentPage, DeviceTypes } from "./src/main/ets/constants/BaseConstants";
 // 数据类型
-export { NoticeBarModel, AppItemModel, ContactsDataModel, Alphabets } from "./src/main/ets/types/AllTypes";
+export { NoticeBarModel, AppItemModel, ContactsDataModel, LanguageModel, Alphabets } from "./src/main/ets/types/AllTypes";
 // 搜索组件
 export { SearchInput } from "./src/main/ets/components/SearchInput";
 // 通知栏组件
@@ -16,3 +16,7 @@ export { ListDividerBorder } from "./src/main/ets/utils/ListUtils";
 export { CellListItem, CellList, CellListItemModel } from "./src/main/ets/components/CellList";
 // 深色主题设置
 export { setAutoColorMode, setDarkColorMode, setLightColorMode, setAppColorMode } from "./src/main/ets/utils/ColorModeUtils";
+// 语言设置
+export { setAppLanguage, setLanguage } from "./src/main/ets/utils/LanguageUtils";
+// 通用Builder
+export { PageTitleBuilder } from "./src/main/ets/builders/PageBuilder";
