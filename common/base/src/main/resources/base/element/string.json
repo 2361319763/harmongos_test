@@ -115,6 +115,10 @@
     {
       "name": "follow_system",
       "value": "跟随系统设置"
+    },
+    {
+      "name": "lang_switch_tip",
+      "value": "是否切换至"
     }
   ]
 }

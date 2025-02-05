@@ -1,8 +1,8 @@
-import { AbilityConstant, Configuration, ConfigurationConstant, UIAbility, Want } from '@kit.AbilityKit';
+import { AbilityConstant, Configuration, UIAbility, Want } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
-import { font, window } from '@kit.ArkUI';
+import { window } from '@kit.ArkUI';
 import { CustomTheme, CustomColors, ThemeControl } from '@kit.ArkUI';
-import { setAppColorMode, setAppLanguage } from 'jbase';
+import { initSystem } from 'jbase';
 // 自定义主题颜色
 class MainColors implements CustomColors {
   brand = $r('app.color.main_color')
@@ -30,22 +30,8 @@ export default class EntryAbility extends UIAbility {
   onWindowStageCreate(windowStage: window.WindowStage): void {
     // Main window is created, set main page for this ability
     hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onWindowStageCreate');
-    windowStage.loadContent('pages/Index', (err) => {
-      if (err.code) {
-        hilog.error(0x0000, 'testTag', 'Failed to load the content. Cause: %{public}s', JSON.stringify(err) ?? '');
-        return;
-      }
-      font.registerFont({
-        familyName: 'iconfont',
-        familySrc: '/fonts/iconfont.ttf'
-      })
-      hilog.info(0x0000, 'registerFont', '注册字体成功');
-      hilog.info(0x0000, 'testTag', 'Succeeded in loading the content.')
-      // 设置深色模式
-      setAppColorMode(this.context)
-      // 设置语言
-      setAppLanguage(this.context)
-    });
+    // 初始化系统
+    initSystem(windowStage, this.context);
   }
 
   onWindowStageDestroy(): void {
@@ -64,9 +50,6 @@ export default class EntryAbility extends UIAbility {
   }
 
   onConfigurationUpdate(newConfig: Configuration): void {
-    const currentColorMode: ConfigurationConstant.ColorMode | undefined = AppStorage.get('currentColorMode');
-    if (currentColorMode !== newConfig.colorMode) {
-      AppStorage.setOrCreate<ConfigurationConstant.ColorMode>('currentColorMode', newConfig.colorMode);
-    }
+
   }
 }

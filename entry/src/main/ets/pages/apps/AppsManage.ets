@@ -49,8 +49,7 @@ export struct AppsManage {
         .padding(BaseConstants.MODULE_PADDING)
       }
     }
-    .title(this.param && this.param.type === 'add' ? StringUtils.getResStr($r('app.string.add_app'), this) : '',
-      { backgroundColor: $r('app.color.white') })
+    .title(this.param && this.param.type === 'add' ? StringUtils.getResStr($r('app.string.add_app'), this) : '')
     .backgroundColor($r('app.color.back_color'))
   }
 }

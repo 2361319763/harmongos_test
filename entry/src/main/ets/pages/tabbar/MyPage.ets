@@ -1,8 +1,8 @@
-import { BaseConstants, CellList, CellListItemModel } from "jbase"
+import { BaseConstants, CellList, CellListItemModel, delJoaData, toLogin, UserConstants } from "jbase"
 
 @Component
 export struct MyPage {
-  @State private navPathStack: NavPathStack = new NavPathStack()
+  @Consume('pageInfos') pageStack: NavPathStack;
   @State textColor: Resource | null = $r('app.color.black')
   @State iconColor: Resource | null = $r('app.color.main_color')
   @StorageProp('currentColorMode') @Watch('onColorModeChange') currentMode: number = 0;
@@ -13,7 +13,7 @@ export struct MyPage {
   }
 
   build() {
-    Navigation(this.navPathStack) {
+    Navigation() {
       Column() {
         // 头部区域
         Row() {
@@ -44,8 +44,7 @@ export struct MyPage {
         CellList({ itemData: [
           { text: $r('app.string.my_settings'),  iconName: $r('sys.symbol.gearshape') }
         ], textColor: this.textColor, iconColor: this.iconColor, onItemClick: (item: CellListItemModel, index: number) => {
-          let parentStack = this.navPathStack.getParent()
-          parentStack?.pushPathByName('systemSetting', null)
+          this.pageStack?.pushPathByName('systemSetting', null)
         }}).margin({ top: 14 })
         // 退出登录
         Row() {
@@ -57,6 +56,7 @@ export struct MyPage {
               title: $r('app.string.tips'),
               message: $r('app.string.my_logout_tips'),
               cornerRadius: BaseConstants.BORDER_RADIUS,
+              height: 170,
               primaryButton: {
                 value: $r('app.string.nobtn'),
                 action: () => {
@@ -65,7 +65,8 @@ export struct MyPage {
               secondaryButton: {
                 value: $r('app.string.yesbtn'),
                 action: () => {
-
+                  delJoaData(UserConstants.TOKEN_KEY)
+                  toLogin()
                 }
               }
             }

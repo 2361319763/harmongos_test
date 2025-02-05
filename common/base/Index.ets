@@ -1,5 +1,7 @@
 // 基础一些字典
-export { BaseConstants, CurrentFeature, CurrentPage, DeviceTypes } from "./src/main/ets/constants/BaseConstants";
+export { BaseConstants, DeviceTypes } from "./src/main/ets/constants/BaseConstants";
+// 用户字典
+export { UserConstants } from "./src/main/ets/constants/UserConstants";
 // 数据类型
 export { NoticeBarModel, AppItemModel, ContactsDataModel, LanguageModel, Alphabets } from "./src/main/ets/types/AllTypes";
 // 搜索组件
@@ -20,3 +22,5 @@ export { setAutoColorMode, setDarkColorMode, setLightColorMode, setAppColorMode 
 export { setAppLanguage, setLanguage } from "./src/main/ets/utils/LanguageUtils";
 // 通用Builder
 export { PageTitleBuilder } from "./src/main/ets/builders/PageBuilder";
+// 上下文
+export { initSystem, setJoaData, getJoaData, delJoaData, toLogin, toIndex } from "./src/main/ets/utils/ContextUtils";

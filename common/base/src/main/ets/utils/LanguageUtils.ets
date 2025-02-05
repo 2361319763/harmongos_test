@@ -3,6 +3,7 @@ import { i18n } from '@kit.LocalizationKit';
 
 export const setLanguage = (language: string) => {
   i18n.System.setAppPreferredLanguage(language);
+  getContext().getApplicationContext().setLanguage(language);
 }
 
 export const setAutoLang = () => {

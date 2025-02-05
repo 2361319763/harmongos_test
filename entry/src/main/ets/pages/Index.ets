@@ -9,10 +9,10 @@ import { MyPage } from './tabbar/MyPage'
 struct Index {
   private controller: TabsController = new TabsController()
   @State pageIndex: number = 0;
-  @State navPathStack: NavPathStack = new NavPathStack()
+  @Provide('pageInfos') pageStack: NavPathStack = new NavPathStack()
 
   build() {
-    Navigation(this.navPathStack) {
+    Navigation(this.pageStack) {
       Tabs({ barPosition: BarPosition.End, index: this.pageIndex, controller: this.controller }) {
         // 首页
         TabContent(){ HomePage() }

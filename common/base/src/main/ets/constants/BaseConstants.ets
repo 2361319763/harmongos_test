@@ -82,25 +82,6 @@ export class BaseConstants {
   static readonly DEVICE_2IN1: string = '2in1'; // 2in1设备
 }
 
-/**
- * 当前功能：首页、小程序或文档
- */
-export enum CurrentFeature {
-  HOME = 0, // 首页
-  APPLET = 1, // 小程序
-  DOCUMENT = 2 // 文档
-}
-
-/**
- * 当前页面：首页、对话或社交圈
- */
-export enum CurrentPage {
-  HOME = 0, // 首页
-  CONVERSATION = 1, // 对话
-  SOCIAL_CIRCLE = 2, // 社交圈
-  ME = 3 // 我的
-}
-
 export enum DeviceTypes {
   PHONE = 'phone', // 手机
   TABLET = 'tablet', // 平板

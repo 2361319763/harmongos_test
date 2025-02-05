@@ -49,8 +49,10 @@ export struct LangSetting {
             AlertDialog.show(
               {
                 title: $r('app.string.tips'),
-                message: '是否确认切换至 ' + tempName + '?',
+                message: `${StringUtils.getResStr($r('app.string.lang_switch_tip'), this)} ${tempName}?`,
                 cornerRadius: BaseConstants.BORDER_RADIUS,
+                autoCancel: false,
+                height: 170,
                 primaryButton: {
                   value: $r('app.string.nobtn'),
                   action: () => {

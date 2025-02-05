@@ -2,10 +2,10 @@ import { Alphabets, BaseConstants, ContactsDataModel } from "jbase"
 import { ContactsListData } from "../../mock/ContactsDataMock";
 import { ContactsItem } from "../comps/ContactsItem";
 
-// 工作台页面
+// 联系人页面
 @Component
 export struct ContactPage {
-  @State navPathStack: NavPathStack = new NavPathStack()
+  @Consume('pageInfos') pageStack: NavPathStack;
   @State selectedIndex: number = 0;
   @State private currentIndex: number = 0;
   @State itemHeight: number = 60;
@@ -31,7 +31,7 @@ export struct ContactPage {
     .padding({ left: 10, right: 10, top: BaseConstants.MODULE_PADDING, bottom: BaseConstants.MODULE_PADDING })
   }
   build() {
-    Navigation(this.navPathStack) {
+    Navigation() {
       Flex({ direction: FlexDirection.Column }) {
         Stack({ alignContent: Alignment.End }) {
           List({ scroller: this.listScroller }) {

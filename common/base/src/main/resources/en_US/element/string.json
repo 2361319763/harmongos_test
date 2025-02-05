@@ -115,6 +115,10 @@
     {
       "name": "follow_system",
       "value": "Follow system"
+    },
+    {
+      "name": "lang_switch_tip",
+      "value": "Switch to "
     }
   ]
 }

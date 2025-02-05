@@ -7,7 +7,7 @@ export class StringUtils {
    * @param compThis this对象
    */
   static getResStr(str: Resource, compThis: Object) {
-    return getContext(compThis).resourceManager.getStringSync(str);
+    return getContext(compThis).resourceManager.getStringSync(str.id);
   }
 
 }

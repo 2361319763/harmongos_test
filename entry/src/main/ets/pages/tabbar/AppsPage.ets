@@ -11,7 +11,7 @@ export struct AppsPage {
     ]
     @State myAppIndex: number | null = null
     @State allAppIndex: number | null = null
-    @State navPathStack: NavPathStack = new NavPathStack()
+    @Consume('pageInfos') pageStack: NavPathStack;
 
     // 搜索确认事件
     onSearchConfirm: (value: string) => void = (value: string) => {
@@ -33,13 +33,12 @@ export struct AppsPage {
 
     // 添加应用
     onAddApps: () => void = () => {
-      let parentStack = this.navPathStack.getParent()
       const pageParams: AppsManageParams = { name: 'appsManage', param: { type: 'add' } }
-      parentStack?.pushPath(pageParams)
+      this.pageStack?.pushPath(pageParams)
     }
 
     build() {
-      Navigation(this.navPathStack) {
+      Navigation() {
         Scroll() {
           Column() {
             Row() {
