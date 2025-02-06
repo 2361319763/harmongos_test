@@ -1,6 +1,8 @@
 import { http } from '@kit.NetworkKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { ContextUtils } from './ContextUtils';
+import { CoreUtils } from './CoreUtils';
+import { StringUtils } from './StringUtils';
 
 export interface RequestConfig {
   url: string;
@@ -51,6 +53,8 @@ export class RequestUtils {
             console.error('error:' + JSON.stringify(err));
             httpRequest.off('headersReceive');
             httpRequest.destroy();
+            const message = StringUtils.getResStr($r('app.string.request_error')) + '[' + err.code + ']';
+            CoreUtils.toast(message);
             reject(err);
           }
         }

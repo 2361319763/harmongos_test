@@ -6,6 +6,7 @@ import { hilog } from "@kit.PerformanceAnalysisKit"
 import { setAppColorMode } from "./ColorModeUtils"
 import { setAppLanguage } from "./LanguageUtils"
 import { UserConstants } from "../constants/UserConstants"
+import { promptAction } from '@kit.ArkUI'
 
 let dataPreferences: preferences.Preferences | null = null
 let windowStageObj: window.WindowStage
@@ -122,5 +123,16 @@ export class CoreUtils {
     } else {
       console.error('windowStageObj is null')
     }
+  }
+
+  /**
+   * 吐司提示
+   */
+  static toast = (message: string, duration?: number) => {
+    let temp = duration || 2000
+    promptAction.showToast({
+      message: message,
+      duration: temp
+    })
   }
 }

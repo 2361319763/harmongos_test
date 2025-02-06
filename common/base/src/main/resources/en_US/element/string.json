@@ -119,6 +119,10 @@
     {
       "name": "lang_switch_tip",
       "value": "Switch to "
+    },
+    {
+      "name": "request_error",
+      "value": "Network Error "
     }
   ]
 }
