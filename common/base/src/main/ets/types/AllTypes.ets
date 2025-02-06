@@ -37,9 +37,21 @@ interface LanguageModel {
 }
 
 /**
+ * 应用配置信息
+ */
+interface AppConfigModel {
+  baseUrl: string;
+  appName: string;
+  appLogo: Resource | string;
+  loginTitle: string;
+  loginLogo: Resource | string;
+  copyRight: string;
+}
+
+/**
  * 联系人首字母
  */
 const Alphabets: string[] = ['#', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K',
   'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
 
-export { NoticeBarModel, AppItemModel, ContactsDataModel, LanguageModel, Alphabets }
+export { NoticeBarModel, AppItemModel, ContactsDataModel, LanguageModel, AppConfigModel, Alphabets }

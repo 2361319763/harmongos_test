@@ -1,9 +1,11 @@
 // 基础一些字典
 export { BaseConstants, DeviceTypes } from "./src/main/ets/constants/BaseConstants";
+// 核心类库
+export { CoreUtils } from "./src/main/ets/utils/CoreUtils";
 // 用户字典
 export { UserConstants } from "./src/main/ets/constants/UserConstants";
 // 数据类型
-export { NoticeBarModel, AppItemModel, ContactsDataModel, LanguageModel, Alphabets } from "./src/main/ets/types/AllTypes";
+export { NoticeBarModel, AppItemModel, ContactsDataModel, LanguageModel, AppConfigModel, Alphabets } from "./src/main/ets/types/AllTypes";
 // 搜索组件
 export { SearchInput } from "./src/main/ets/components/SearchInput";
 // 通知栏组件
@@ -23,4 +25,8 @@ export { setAppLanguage, setLanguage } from "./src/main/ets/utils/LanguageUtils"
 // 通用Builder
 export { PageTitleBuilder } from "./src/main/ets/builders/PageBuilder";
 // 上下文
-export { initSystem, setJoaData, getJoaData, delJoaData, toLogin, toIndex } from "./src/main/ets/utils/ContextUtils";
+export { ContextUtils } from "./src/main/ets/utils/ContextUtils";
+// 请求工具
+export { RequestUtils, RequestConfig } from "./src/main/ets/utils/RequestUtils";
+// 按钮组件
+export { MainButton } from "./src/main/ets/components/Buttons";

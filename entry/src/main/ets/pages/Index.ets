@@ -4,6 +4,9 @@ import { AppsPage } from './tabbar/AppsPage';
 import { ContactPage } from './tabbar/ContactPage';
 import { MyPage } from './tabbar/MyPage'
 
+/**
+ * 首页页面
+ */
 @Entry
 @Component
 struct Index {

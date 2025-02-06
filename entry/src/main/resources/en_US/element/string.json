@@ -2,7 +2,7 @@
   "string": [
     {
       "name": "app_name",
-      "value": "P9-OFFICE"
+      "value": "JHM-OFFICE"
     },
     {
       "name": "app_desc",
@@ -86,7 +86,39 @@
     },
     {
       "name": "my_logout_tips",
-      "value": "Are you sure you want to log out of your current account?"
+      "value": "Are you sure log out of your current account?"
+    },
+    {
+      "name": "welcome_login",
+      "value": "Welcome to "
+    },
+    {
+      "name": "pls_user",
+      "value": "Pls enter your username"
+    },
+    {
+      "name": "pls_pass",
+      "value": "Pls enter your password"
+    },
+    {
+      "name": "login_text",
+      "value": "Login"
+    },
+    {
+      "name": "login_ing",
+      "value": "Logging in..."
+    },
+    {
+      "name": "login_success",
+      "value": "Login successful"
+    },
+    {
+      "name": "no_user_tips",
+      "value": "No account? Sign up now"
+    },
+    {
+      "name": "copy_right",
+      "value": "Copyright"
     }
   ]
 }

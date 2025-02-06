@@ -44,12 +44,12 @@ export struct LangSetting {
           .onClick(() => {
             let tempLang = this.appLanguage
             let tempName: string = typeof item.name === 'object'
-              ? StringUtils.getResStr(item.name, this) : item.name
+              ? StringUtils.getResStr(item.name) : item.name
             this.appLanguage = item.code
             AlertDialog.show(
               {
                 title: $r('app.string.tips'),
-                message: `${StringUtils.getResStr($r('app.string.lang_switch_tip'), this)} ${tempName}?`,
+                message: `${StringUtils.getResStr($r('app.string.lang_switch_tip'))} ${tempName}?`,
                 cornerRadius: BaseConstants.BORDER_RADIUS,
                 autoCancel: false,
                 height: 170,

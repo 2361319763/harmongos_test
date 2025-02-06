@@ -1,5 +1,10 @@
-import { BaseConstants, setJoaData, toIndex, UserConstants } from 'jbase'
+import { BaseConstants, MainButton, CoreUtils, UserConstants } from 'jbase'
+import { getCodeImg } from '../api/Login'
+import { AppConfig } from '../config/Index'
 
+/**
+ * 登录页面
+ */
 @Entry
 @Component
 struct Main {
@@ -11,16 +16,20 @@ struct Main {
   build() {
     Column() {
       Image($r('app.media.background')).width('100%').height(180).position({ top: 0 })
-      Image($r('app.media.logo')).width(80).height(80)
-      Text('欢迎登录JOA').fontSize(26).fontWeight(FontWeight.Bold).margin({ top: 24, bottom: 40 })
-      TextInput({ placeholder: '请输入用户名', text: this.username })
+      Image(AppConfig.loginLogo).width(80).height(80)
+      Text(AppConfig.loginTitle).fontSize(26).fontWeight(FontWeight.Bold).margin({ top: 24, bottom: 40 })
+
+      // 账号输入框
+      TextInput({ placeholder: $r('app.string.pls_user'), text: this.username })
         .cancelButton({ style: CancelButtonStyle.INPUT })
         .onChange((value: string) => {
           this.username = value
         })
         .inputStyle()
         .fontSize(16)
-      TextInput({ placeholder: '请输入密码', text: this.password })
+
+      // 密码输入框
+      TextInput({ placeholder: $r('app.string.pls_pass'), text: this.password })
         .type(InputType.Password)
         .showPasswordIcon(true)
         .cancelButton({ style: CancelButtonStyle.INPUT })
@@ -34,19 +43,17 @@ struct Main {
         }))
         .inputStyle()
         .fontSize(16)
-      Button('登 录')
-        .onClick(() => {
-          setJoaData(UserConstants.TOKEN_KEY, 'admin')
-          toIndex()
-        })
-        .fontSize(16)
-        .margin({ top: 24, bottom: 24, left: 60, right: 60 })
-        .height(45)
-        .width(300)
-        .backgroundColor($r('app.color.main_color'))
-        .borderRadius(BaseConstants.BORDER_RADIUS)
 
-      Text('没有账号？立即注册')
+      // 登录按钮
+      MainButton({ btnText: $r('app.string.login_text'), btnWidth: 300, onButtonClick: () => {
+        // setJoaData(UserConstants.TOKEN_KEY, 'admin')
+        // toIndex()
+        getCodeImg().then((res) => {
+          console.log(res['img']);
+        })
+      }}).margin({ top: 24, bottom: 24 })
+
+      Text($r('app.string.no_user_tips'))
         .fontSize(15)
         .fontColor($r('app.color.main_color'))
         .width(BaseConstants.FULL_WIDTH)
@@ -54,7 +61,7 @@ struct Main {
         .margin({ top: 24 })
 
       // 底部版权
-      Text('版权所有 © 2025 476743842@qq.com')
+      Text(AppConfig.copyRight)
         .fontSize(12)
         .fontColor($r('app.color.gl_999'))
         .width(BaseConstants.FULL_WIDTH)

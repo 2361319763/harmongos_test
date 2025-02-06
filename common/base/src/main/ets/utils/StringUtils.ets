@@ -6,8 +6,8 @@ export class StringUtils {
    * @param str 资源
    * @param compThis this对象
    */
-  static getResStr(str: Resource, compThis: Object) {
-    return getContext(compThis).resourceManager.getStringSync(str.id);
+  static getResStr(str: Resource) {
+    return getContext().resourceManager.getStringSync(str.id);
   }
 
 }

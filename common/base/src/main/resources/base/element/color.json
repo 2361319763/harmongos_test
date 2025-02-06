@@ -5,6 +5,10 @@
       "value": "#ffffff"
     },
     {
+      "name": "main_color",
+      "value": "#2999FB"
+    },
+    {
       "name": "back_color",
       "value": "#f5f5f5"
     },

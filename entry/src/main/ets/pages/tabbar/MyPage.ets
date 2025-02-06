@@ -1,4 +1,4 @@
-import { BaseConstants, CellList, CellListItemModel, delJoaData, toLogin, UserConstants } from "jbase"
+import { BaseConstants, CellList, CellListItemModel, CoreUtils, UserConstants } from "jbase"
 
 @Component
 export struct MyPage {
@@ -65,8 +65,8 @@ export struct MyPage {
               secondaryButton: {
                 value: $r('app.string.yesbtn'),
                 action: () => {
-                  delJoaData(UserConstants.TOKEN_KEY)
-                  toLogin()
+                  CoreUtils.delJhmData(UserConstants.TOKEN_KEY)
+                  CoreUtils.toLogin()
                 }
               }
             }

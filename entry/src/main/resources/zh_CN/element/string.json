@@ -2,7 +2,7 @@
   "string": [
     {
       "name": "app_name",
-      "value": "P9-OFFICE"
+      "value": "JHM-OFFICE"
     },
     {
       "name": "app_desc",
@@ -87,6 +87,38 @@
     {
       "name": "my_logout_tips",
       "value": "是否退出当前账号?"
+    },
+    {
+      "name": "welcome_login",
+      "value": "欢迎登录"
+    },
+    {
+      "name": "pls_user",
+      "value": "请输入用户名"
+    },
+    {
+      "name": "pls_pass",
+      "value": "请输入密码"
+    },
+    {
+      "name": "login_text",
+      "value": "登 录"
+    },
+    {
+      "name": "login_ing",
+      "value": "登录中..."
+    },
+    {
+      "name": "login_success",
+      "value": "登录成功"
+    },
+    {
+      "name": "no_user_tips",
+      "value": "没有账号？立即注册"
+    },
+    {
+      "name": "copy_right",
+      "value": "版权所有"
     }
   ]
 }

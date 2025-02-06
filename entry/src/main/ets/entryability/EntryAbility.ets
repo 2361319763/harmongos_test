@@ -2,7 +2,7 @@ import { AbilityConstant, Configuration, UIAbility, Want } from '@kit.AbilityKit
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { window } from '@kit.ArkUI';
 import { CustomTheme, CustomColors, ThemeControl } from '@kit.ArkUI';
-import { initSystem } from 'jbase';
+import { CoreUtils } from 'jbase';
 // 自定义主题颜色
 class MainColors implements CustomColors {
   brand = $r('app.color.main_color')
@@ -31,7 +31,7 @@ export default class EntryAbility extends UIAbility {
     // Main window is created, set main page for this ability
     hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onWindowStageCreate');
     // 初始化系统
-    initSystem(windowStage, this.context);
+    CoreUtils.initSystem(windowStage, this.context);
   }
 
   onWindowStageDestroy(): void {
