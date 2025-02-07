@@ -96,21 +96,23 @@ struct Main {
         .inputStyle()
         .fontSize(16)
 
-      Row() {
-        // 验证码输入框
-        TextInput({ placeholder: $r('app.string.pls_ver_code'), text: this.codeValue })
-          .type(InputType.Number)
-          .cancelButton({ style: CancelButtonStyle.INPUT })
-          .onChange((value: string) => {
-            this.codeValue = value
-          }).inputStyle().fontSize(16).width(200)
-        Image(this.codeImg).width(90).height(48).margin({ bottom: 18 })
-          .borderRadius(BaseConstants.BORDER_RADIUS)
-          .onClick(() => this.loadCodeImg())
+      if (this.captchaEnabled) {
+        Row() {
+          // 验证码输入框
+          TextInput({ placeholder: $r('app.string.pls_ver_code'), text: this.codeValue })
+            .type(InputType.Number)
+            .cancelButton({ style: CancelButtonStyle.INPUT })
+            .onChange((value: string) => {
+              this.codeValue = value
+            }).inputStyle().fontSize(16).width(200)
+          Image(this.codeImg).width(90).height(48).margin({ bottom: 18 })
+            .borderRadius(BaseConstants.BORDER_RADIUS)
+            .onClick(() => this.loadCodeImg())
+        }
+        .alignItems(VerticalAlign.Center)
+        .justifyContent(FlexAlign.SpaceBetween)
+        .width(300)
       }
-      .alignItems(VerticalAlign.Center)
-      .justifyContent(FlexAlign.SpaceBetween)
-      .width(300)
 
       // 登录按钮
       MainButton({ btnText: $r('app.string.login_text'), btnWidth: 300,

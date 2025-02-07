@@ -126,7 +126,7 @@
     },
     {
       "name": "pls_read_agree",
-      "value": "Pls read and agree to "
+      "value": "Agree to "
     },
     {
       "name": "pls_read_tips",
@@ -138,7 +138,7 @@
     },
     {
       "name": "and",
-      "value": " and "
+      "value": " , "
     },
     {
       "name": "user_agreement",
