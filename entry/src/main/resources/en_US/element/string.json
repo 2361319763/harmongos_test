@@ -119,6 +119,30 @@
     {
       "name": "copy_right",
       "value": "Copyright"
+    },
+    {
+      "name": "pls_ver_code",
+      "value": "Pls enter ver code"
+    },
+    {
+      "name": "pls_read_agree",
+      "value": "Pls read and agree to "
+    },
+    {
+      "name": "pls_read_tips",
+      "value": "Pls read and agree to Privacy Policy and User Agreement"
+    },
+    {
+      "name": "privacy_policy",
+      "value": "Privacy Policy"
+    },
+    {
+      "name": "and",
+      "value": " and "
+    },
+    {
+      "name": "user_agreement",
+      "value": "User Agreement"
     }
   ]
 }

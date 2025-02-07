@@ -3,7 +3,11 @@ import { BusinessError } from '@kit.BasicServicesKit';
 import { ContextUtils } from './ContextUtils';
 import { CoreUtils } from './CoreUtils';
 import { StringUtils } from './StringUtils';
-
+import { BaseConstants } from '../constants/BaseConstants';
+import { UserConstants } from '../constants/UserConstants';
+/**
+ * 请求工具类
+ */
 export interface RequestConfig {
   url: string;
   headers?: RequestHeaders;
@@ -18,9 +22,6 @@ export interface RequestHeaders {
   'Content-Type'?: string;
 }
 
-/**
- * 请求工具类
- */
 export class RequestUtils {
 
   static request = (config: RequestConfig) => {
@@ -48,6 +49,34 @@ export class RequestUtils {
           if (!err) {
             console.info('result:' + JSON.stringify(data.result));
             httpRequest.destroy();
+            let code: number = data.result['code'] || 200;
+            let defaultMsg = StringUtils.getResStr($r('app.string.request_err_none'));
+            let msg: string = getErrorMessage(code) || data.result['msg'] || defaultMsg;
+            if (code == 401) {
+              AlertDialog.show(
+                {
+                  title: $r('app.string.tips'),
+                  message: $r('app.string.to_login_tips'),
+                  cornerRadius: BaseConstants.BORDER_RADIUS,
+                  height: 200,
+                  primaryButton: { value: $r('app.string.nobtn'), action: () => { }},
+                  secondaryButton: {
+                    value: $r('app.string.re_login'),
+                    action: () => {
+                      CoreUtils.delJhmData(UserConstants.TOKEN_KEY)
+                      CoreUtils.toLogin()
+                    }
+                  }
+                }
+              )
+              reject($r('app.string.login_timeout'))
+            } else if (code === 500) {
+              CoreUtils.toast(msg)
+              reject('500')
+            } else if (code !== 200) {
+              CoreUtils.toast(msg)
+              reject(code)
+            }
             resolve(data.result);
           } else {
             console.error('error:' + JSON.stringify(err));
@@ -63,4 +92,20 @@ export class RequestUtils {
     return promise;
   }
 
+}
+
+const getErrorMessage = (code: number) => {
+  let message = '';
+  switch (code) {
+    case 401:
+      message = StringUtils.getResStr($r('app.string.request_err_401'));
+      break;
+    case 403:
+      message = StringUtils.getResStr($r('app.string.request_err_403'));
+      break;
+    case 404:
+      message = StringUtils.getResStr($r('app.string.request_err_404'));
+      break;
+  }
+  return message
 }

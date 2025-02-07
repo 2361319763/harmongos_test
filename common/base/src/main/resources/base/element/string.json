@@ -123,6 +123,42 @@
     {
       "name": "request_error",
       "value": "网络异常"
+    },
+    {
+      "name": "request_timeout",
+      "value": "网络请求超时"
+    },
+    {
+      "name": "request_err_401",
+      "value": "认证失败，无法访问系统资源"
+    },
+    {
+      "name": "request_err_403",
+      "value": "当前操作没有权限"
+    },
+    {
+      "name": "request_err_404",
+      "value": "访问资源不存在"
+    },
+    {
+      "name": "request_err_500",
+      "value": "内部服务器错误"
+    },
+    {
+      "name": "request_err_none",
+      "value": "系统未知错误"
+    },
+    {
+      "name": "to_login_tips",
+      "value": "登录状态已过期，您可以继续留在该页面，或者重新登录？"
+    },
+    {
+      "name": "re_login",
+      "value": "重新登录"
+    },
+    {
+      "name": "login_timeout",
+      "value": "无效的会话，或者会话已过期，请重新登录"
     }
   ]
 }

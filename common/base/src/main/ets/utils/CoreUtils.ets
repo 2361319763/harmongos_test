@@ -128,7 +128,7 @@ export class CoreUtils {
   /**
    * 吐司提示
    */
-  static toast = (message: string, duration?: number) => {
+  static toast = (message: string | Resource, duration?: number) => {
     let temp = duration || 2000
     promptAction.showToast({
       message: message,

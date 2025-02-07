@@ -123,6 +123,43 @@
     {
       "name": "request_error",
       "value": "Network Error "
+    },
+    {
+      "name": "request_timeout",
+      "value": "Network request timeout"
+    },
+    {
+      "name": "request_err_401",
+      "value": "Authentication failed, unable to access system resources"
+    },
+    {
+      "name": "request_err_403",
+      "value": "No permission for the resources"
+    },
+    {
+      "name": "request_err_404",
+      "value": "Requested resource not found"
+    },
+    {
+      "name": "request_err_500",
+      "value": "Internal server error"
+    },
+    {
+      "name": "request_err_none",
+      "value": "Unknown system error"
+    },
+    {
+      "name": "to_login_tips",
+      "value": "Your login session has expired. You can stay on this page or log in again ?"
+    },
+    {
+      "name": "re_login",
+      "value": "To login"
+    },
+    {
+      "name": "login_timeout",
+      "value": "Session has expired. Pls login again"
     }
+
   ]
 }
