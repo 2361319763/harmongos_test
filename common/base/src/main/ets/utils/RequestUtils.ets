@@ -32,6 +32,7 @@ export class RequestUtils {
       isToken = false;
     } else {
       headerObj.Authorization = 'Bearer ' + ContextUtils.getToken();
+      console.log('Authorization:' + headerObj.Authorization)
     }
     let httpRequest = http.createHttp();
     const promise: Promise<object> = new Promise((resolve: Function, reject: Function) => {
@@ -41,13 +42,13 @@ export class RequestUtils {
           method: config.method,
           header: headerObj,
           expectDataType: http.HttpDataType.OBJECT,
-          extraData: config.data ? config.data : '',
+          extraData: config.data ? config.data : null,
           connectTimeout: config.timeout ? config.timeout : 30000,
           readTimeout: config.timeout ? config.timeout : 30000
         },
         (err: BusinessError, data: http.HttpResponse) => {
           if (!err) {
-            console.info('result:' + JSON.stringify(data.result));
+            console.info(config.url + ', result:' + JSON.stringify(data.result));
             httpRequest.destroy();
             let code: number = data.result['code'] || 200;
             let defaultMsg = StringUtils.getResStr($r('app.string.request_err_none'));
@@ -79,7 +80,7 @@ export class RequestUtils {
             }
             resolve(data.result);
           } else {
-            console.error('error:' + JSON.stringify(err));
+            console.error( config.url + ', error:' + JSON.stringify(err));
             httpRequest.off('headersReceive');
             httpRequest.destroy();
             const message = StringUtils.getResStr($r('app.string.request_error')) + '[' + err.code + ']';

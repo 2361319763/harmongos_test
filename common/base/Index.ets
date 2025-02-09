@@ -11,7 +11,7 @@ export { setAutoColorMode, setDarkColorMode, setLightColorMode, setAppColorMode 
 // 语言设置
 export { setAppLanguage, setLanguage } from "./src/main/ets/utils/LanguageUtils";
 // 上下文
-export { ContextUtils } from "./src/main/ets/utils/ContextUtils";
+export { ContextUtils, UserInfo } from "./src/main/ets/utils/ContextUtils";
 // 请求工具
 export { RequestUtils, RequestConfig } from "./src/main/ets/utils/RequestUtils";
 

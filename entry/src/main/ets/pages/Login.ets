@@ -1,5 +1,5 @@
 import { BaseConstants, MainButton, CoreUtils, UserConstants, ContextUtils, FullLoading } from 'jbase'
-import { getCodeImg, login, LoginParams } from '../api/Login'
+import { getCodeImg, login, getUserInfo, LoginParams } from '../api/Login'
 import { AppConfig } from '../config/Index'
 
 /**
@@ -58,8 +58,12 @@ struct Main {
     } as LoginParams).then((res) => {
       ContextUtils.setToken(res['token'])
       CoreUtils.toast($r('app.string.login_success'))
-      // 跳转首页
-      CoreUtils.toIndex()
+      // 获取用户信息
+      getUserInfo().then((res) => {
+        ContextUtils.setUserInfo(res['user'])
+        // 跳转首页
+        CoreUtils.toIndex()
+      })
     }).finally(() => this.pageLoading = false)
   }
 
@@ -128,6 +132,10 @@ struct Main {
       Flex({ alignItems: ItemAlign.Center, justifyContent: FlexAlign.Start, wrap: FlexWrap.Wrap }) {
         Radio({ value: 'Radio1', group: 'radioGroup', indicatorType:RadioIndicatorType.TICK
         }).checked(this.loginAgree).height(18).width(18)
+          .onClick((event) => {
+            this.loginAgree = !this.loginAgree
+            return false
+          })
         Text($r('app.string.pls_read_agree')).fontSize(14).fontColor($r('app.color.gl_888'))
         Text($r('app.string.privacy_policy')).fontSize(14).fontColor($r('app.color.main_color'))
           .onClick((event) => {

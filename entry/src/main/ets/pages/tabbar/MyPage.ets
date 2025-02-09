@@ -1,15 +1,21 @@
-import { BaseConstants, CellList, CellListItemModel, CoreUtils, UserConstants } from "jbase"
+import { BaseConstants, CellList, CellListItemModel, CoreUtils, ContextUtils, UserInfo } from 'jbase'
+import { logout } from '../../api/Login'
+import { AppConfig } from '../../config/Index'
 
 @Component
 export struct MyPage {
   @Consume('pageInfos') pageStack: NavPathStack;
   @State textColor: Resource | null = $r('app.color.black')
   @State iconColor: Resource | null = $r('app.color.main_color')
-  @StorageProp('currentColorMode') @Watch('onColorModeChange') currentMode: number = 0;
-
+  @StorageProp('currentColorMode') @Watch('onColorModeChange') currentMode: number = 0
+  private userInfo: UserInfo | null = null
   onColorModeChange(changedPropertyName: string) {
     this.textColor = $r('app.color.black')
     this.iconColor = $r('app.color.main_color')
+  }
+
+  aboutToAppear(): void {
+    this.userInfo = ContextUtils.getUserInfo()
   }
 
   build() {
@@ -17,10 +23,14 @@ export struct MyPage {
       Column() {
         // 头部区域
         Row() {
-          Image($r('app.media.avatar12')).width(70).height(70).borderRadius(BaseConstants.BORDER_RADIUS)
+          if (!!this.userInfo?.avatar) {
+            Image(AppConfig.baseUrl + this.userInfo?.avatar).width(70).height(70).borderRadius(BaseConstants.BORDER_RADIUS)
+          } else {
+            Image($r('app.media.avatar12')).width(70).height(70).borderRadius(BaseConstants.BORDER_RADIUS)
+          }
           Column() {
-            Text('小杰').fontSize(18).fontColor($r('app.color.black')).margin({ left: 14 })
-            Text('13529061734').fontSize(15).fontColor($r('app.color.gl_888')).margin({ left: 14, top: 8 })
+            Text(this.userInfo?.nickName).fontSize(18).fontColor($r('app.color.black')).margin({ left: 14 })
+            Text(this.userInfo?.phonenumber).fontSize(15).fontColor($r('app.color.gl_888')).margin({ left: 14, top: 8 })
           }.flexGrow(1).alignItems(HorizontalAlign.Start)
           Row() {
             SymbolGlyph($r('sys.symbol.qrcode')).fontColor([$r('app.color.gl_888')]).fontSize(24)
@@ -59,13 +69,13 @@ export struct MyPage {
               height: 170,
               primaryButton: {
                 value: $r('app.string.nobtn'),
-                action: () => {
-                }
+                action: () => {}
               },
               secondaryButton: {
                 value: $r('app.string.yesbtn'),
                 action: () => {
-                  CoreUtils.delJhmData(UserConstants.TOKEN_KEY)
+                  logout()
+                  CoreUtils.logout()
                   CoreUtils.toLogin()
                 }
               }

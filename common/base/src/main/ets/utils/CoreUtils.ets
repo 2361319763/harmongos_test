@@ -7,6 +7,7 @@ import { setAppColorMode } from "./ColorModeUtils"
 import { setAppLanguage } from "./LanguageUtils"
 import { UserConstants } from "../constants/UserConstants"
 import { promptAction } from '@kit.ArkUI'
+import { UserInfo } from './ContextUtils'
 
 let dataPreferences: preferences.Preferences | null = null
 let windowStageObj: window.WindowStage
@@ -34,12 +35,12 @@ export class CoreUtils {
   /**
    * 设置全局存储
    */
-  static setJhmData = (key: string, value: string) => {
+  static setJhmData = (key: string, value: ValueType | UserInfo) => {
     if (!dataPreferences) {
       return false
     }
     dataPreferences.putSync(key, value)
-    console.debug('setJoaData: ' + key + ' ' + value)
+    console.debug('setJhmData: ' + key + ' ' + value)
     dataPreferences.flush((err: BusinessError) => {
       if (err) {
         console.error(`Failed to flush. Code:${err.code}, message:${err.message}`)
@@ -83,7 +84,7 @@ export class CoreUtils {
    */
   static initSystem = (windowStage: window.WindowStage, context: common.UIAbilityContext) => {
     // 初始化全局存储
-    dataPreferences = preferences.getPreferencesSync(context, { name: 'JoaStore' });
+    dataPreferences = preferences.getPreferencesSync(context, { name: 'JhmStore' });
     windowStageObj = windowStage;
     appContext = context;
     let token = this.getJhmData(UserConstants.TOKEN_KEY, '');
@@ -123,6 +124,14 @@ export class CoreUtils {
     } else {
       console.error('windowStageObj is null')
     }
+  }
+
+  /**
+   * 退出登录
+   */
+  static logout = () => {
+    this.delJhmData(UserConstants.TOKEN_KEY)
+    this.delJhmData(UserConstants.CTT_KEY)
   }
 
   /**

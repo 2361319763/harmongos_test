@@ -1,9 +1,8 @@
-import { BaseConstants } from 'jbase';
-import { HomePage } from './tabbar/HomePage';
-import { AppsPage } from './tabbar/AppsPage';
-import { ContactPage } from './tabbar/ContactPage';
+import { BaseConstants } from 'jbase'
+import { HomePage } from './tabbar/HomePage'
+import { AppsPage } from './tabbar/AppsPage'
+import { ContactPage } from './tabbar/ContactPage'
 import { MyPage } from './tabbar/MyPage'
-
 /**
  * 首页页面
  */
@@ -13,6 +12,10 @@ struct Index {
   private controller: TabsController = new TabsController()
   @State pageIndex: number = 0;
   @Provide('pageInfos') pageStack: NavPathStack = new NavPathStack()
+
+  aboutToAppear(): void {
+
+  }
 
   build() {
     Navigation(this.pageStack) {
