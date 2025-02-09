@@ -18,10 +18,10 @@
 
 #### 演示截图
 
-<table border="1" cellpadding="1" cellspacing="1" style="width:100%">
+<table style="width:100%">
 	<tbody>
 		<tr>
-			<td><strong><img alt="" src="https://oscimg.oschina.net/oscnet/up-4cc303a2e2520b08f19b3e48cc106c94ec8.jpg" /></strong></td>
+			<td><img alt="" src="https://oscimg.oschina.net/oscnet/up-4cc303a2e2520b08f19b3e48cc106c94ec8.jpg" /></td>
 			<td><img alt="" src="https://oscimg.oschina.net/oscnet/up-a71219124debec810ac64c2cc2f5759371a.jpg" /></td>
 			<td><img alt="" src="https://oscimg.oschina.net/oscnet/up-1cb22d1cb8e3eb9d6881196bb5a18eb49b5.jpg" /></td>
 		</tr>
@@ -46,5 +46,19 @@
 #### 联系作者
 
 QQ：476743842
+
+#### 赞赏作者
+
+开源不易，客观来点打赏吧~
+
+<table style="width:100%">
+	<tbody>
+		<tr>
+			<td><img alt="" src="https://oscimg.oschina.net/oscnet/up-f9e22f44c716ad3b97fe877a06819206234.jpg" width="300px" /></td>
+			<td><img alt="" src="https://oscimg.oschina.net/oscnet/up-b70a6aa0674555a160bcad4566678ef0b89.jpg" width="300px" /></td>
+			<td>&nbsp;</td>
+		</tr>
+	</tbody>
+</table>
 
 
