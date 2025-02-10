@@ -25,6 +25,12 @@
       "pageSourceFile": "src/main/ets/pages/system/LangSetting.ets",
       "buildFunction": "LangSettingBuilder",
       "data": { }
+    },
+    {
+      "name": "userIndex",
+      "pageSourceFile": "src/main/ets/pages/system/UserIndex.ets",
+      "buildFunction": "UserIndexBuilder",
+      "data": { }
     }
   ]
 }

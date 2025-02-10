@@ -37,7 +37,9 @@ export struct MyPage {
             SymbolGlyph($r('sys.symbol.chevron_right')).fontColor([$r('app.color.gl_888')])
               .fontSize(24).margin({ left: 5 })
           }
-        }.itemStyle()
+        }.itemStyle().onClick(() => {
+          this.pageStack?.pushPathByName('userIndex', null)
+        })
         // 我的收藏
         CellList({ itemData: [
           { text: $r('app.string.my_favorites'),  iconName: $r('sys.symbol.star') }
