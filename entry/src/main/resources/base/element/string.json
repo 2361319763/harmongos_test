@@ -143,6 +143,126 @@
     {
       "name": "user_agreement",
       "value": "《用户协议》"
+    },
+    {
+      "name": "user_profile",
+      "value": "个人资料"
+    },
+    {
+      "name": "user_avatar",
+      "value": "头像"
+    },
+    {
+      "name": "user_name",
+      "value": "用户名称"
+    },
+    {
+      "name": "user_nickname",
+      "value": "用户昵称"
+    },
+    {
+      "name": "user_phone",
+      "value": "手机号码"
+    },
+    {
+      "name": "user_email",
+      "value": "电子邮箱"
+    },
+    {
+      "name": "user_gender",
+      "value": "性别"
+    },
+    {
+      "name": "user_department",
+      "value": "所属部门"
+    },
+    {
+      "name": "user_role",
+      "value": "所属角色"
+    },
+    {
+      "name": "user_create_time",
+      "value": "创建时间"
+    },
+    {
+      "name": "user_save",
+      "value": "保存"
+    },
+    {
+      "name": "gender_male",
+      "value": "男"
+    },
+    {
+      "name": "gender_female",
+      "value": "女"
+    },
+    {
+      "name": "about_version",
+      "value": "当前版本"
+    },
+    {
+      "name": "about_company",
+      "value": "鸿蒙开发者联盟社区"
+    },
+    {
+      "name": "about_slogan",
+      "value": "科技让生活更好"
+    },
+    {
+      "name": "about_desc",
+      "value": "鸿蒙开发者联盟，是一个致力于促进鸿蒙操作系统（HarmonyOS）生态系统发展的社区组织，主要任务包括促进开发者交流、提供技术支持、推广应用开发、组织培训与活动。通过这些工作，鸿蒙开发者联盟希望建立一个强大且可持续发展的生态系统，吸引更多的开发者参与进来，推动鸿蒙OS的广泛应用。鸿蒙开发者联盟的具体职能和活动包括：促进开发者交流、通过线上社区和论坛（如GitHub、Stack Overflow）以及线下活动（如技术沙龙、黑客马拉松、开发者大会），为开发者提供一个良好的交流环境，帮助他们相互学习、共同进步。提供技术支持：整理大量的技术文档和教程，提供在线支持和答疑服务，帮助开发者解决开发过程中遇到的各种问题。推广应用开发：与各大应用商店和分发渠道合作，帮助开发者将应用快速上线并推广给更多用户；通过市场营销和宣传活动，提升鸿蒙OS及其应用的知名度和用户接受度。此外，鸿蒙开发者联盟还提供全面的服务，包括开发工具（如DevEco Studio）、开发语言（如ArkTS）、UI开发框架（如ArkUI）、测试平台（如DevEco Testing）等，帮助开发者从设计、开发、测试到上架的全流程服务"
+    },
+    {
+      "name": "user_manage",
+      "value": "账号管理"
+    },
+    {
+      "name": "security_settings",
+      "value": "安全设置"
+    },
+    {
+      "name": "change_pass",
+      "value": "密码修改"
+    },
+    {
+      "name": "old_pass",
+      "value": "旧密码"
+    },
+    {
+      "name": "new_pass",
+      "value": "新密码"
+    },
+    {
+      "name": "confirm_pass",
+      "value": "确认密码"
+    },
+    {
+      "name": "pls_old_pass",
+      "value": "请填写旧密码"
+    },
+    {
+      "name": "pls_new_pass",
+      "value": "请填写新密码"
+    },
+    {
+      "name": "pls_confirm_pass",
+      "value": "请再次输入新密码"
+    },
+    {
+      "name": "confirm_change",
+      "value": "确认修改"
+    },
+    {
+      "name": "pass_tips",
+      "value": "注："
+    },
+    {
+      "name": "pass_rule1",
+      "value": "1.旧密码与新密码不能一致"
+    },
+    {
+      "name": "pass_rule2",
+      "value": "2.密码长度6位及6位以上"
     }
   ]
 }

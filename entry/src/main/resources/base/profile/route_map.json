@@ -31,6 +31,18 @@
       "pageSourceFile": "src/main/ets/pages/system/UserIndex.ets",
       "buildFunction": "UserIndexBuilder",
       "data": { }
+    },
+    {
+      "name": "aboutUs",
+      "pageSourceFile": "src/main/ets/pages/system/AboutUs.ets",
+      "buildFunction": "AboutUsBuilder",
+      "data": { }
+    },
+    {
+      "name": "updatePassword",
+      "pageSourceFile": "src/main/ets/pages/system/UpdatePassword.ets",
+      "buildFunction": "UpdatePasswordBuilder",
+      "data": { }
     }
   ]
 }

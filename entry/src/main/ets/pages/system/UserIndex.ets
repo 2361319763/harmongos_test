@@ -33,7 +33,7 @@ export struct UserIndex {
     NavDestination() {
       Column() {
         Row() {
-          this.LabelText('头像')
+          this.LabelText($r('app.string.user_avatar'))
           Row() {
             Image($r('app.media.avatar12')).width(60).height(60).borderRadius(BaseConstants.BORDER_RADIUS)
             this.IconArrow()
@@ -42,13 +42,13 @@ export struct UserIndex {
         this.DividerItem({ top: 20 })
         // 用户名称
         Row() {
-          this.LabelText('用户名称')
+          this.LabelText($r('app.string.user_name'))
           Row() { this.LabelShow('admin') }
         }.itemStyle().padding(this.labelPading).justifyContent(FlexAlign.SpaceBetween)
         this.DividerItem(0)
         // 用户昵称
         Row() {
-          this.LabelText('用户昵称')
+          this.LabelText($r('app.string.user_nickname'))
           Row() {
             TextInput({ text: 'Jie.' }).inputStyle().fontSize(16).fontColor($r('app.color.black'))
               .textAlign(TextAlign.End)
@@ -58,7 +58,7 @@ export struct UserIndex {
         this.DividerItem(0)
         // 手机号码
         Row() {
-          this.LabelText('手机号码')
+          this.LabelText($r('app.string.user_phone'))
           Row() {
             TextInput({ text: '13529061734' }).type(InputType.PhoneNumber)
               .inputStyle().fontSize(16).fontColor($r('app.color.black'))
@@ -69,7 +69,7 @@ export struct UserIndex {
         this.DividerItem(0)
         // 电子邮箱
         Row() {
-          this.LabelText('电子邮箱')
+          this.LabelText($r('app.string.user_email'))
           Row() {
             TextInput({ text: '476743842@qq.com' }).type(InputType.Email)
               .inputStyle().fontSize(16).fontColor($r('app.color.black'))
@@ -80,9 +80,9 @@ export struct UserIndex {
         this.DividerItem(0)
         // 性别
         Row() {
-          this.LabelText('性别')
+          this.LabelText($r('app.string.user_gender'))
           Row() {
-            this.LabelShow('男')
+            this.LabelShow($r('app.string.gender_male'))
             this.IconArrow()
           }
         }.itemStyle().padding(this.labelPading).justifyContent(FlexAlign.SpaceBetween)
@@ -107,19 +107,19 @@ export struct UserIndex {
         this.DividerItem(0)
         // 所属部门
         Row() {
-          this.LabelText('所属部门')
+          this.LabelText($r('app.string.user_department'))
           Row() { this.LabelShow('研发部门 / 董事长') }
         }.itemStyle().padding(this.labelPading).justifyContent(FlexAlign.SpaceBetween)
         this.DividerItem(0)
         // 所属角色
         Row() {
-          this.LabelText('所属角色')
+          this.LabelText($r('app.string.user_role'))
           Row() { this.LabelShow('超级管理员') }
         }.itemStyle().padding(this.labelPading).justifyContent(FlexAlign.SpaceBetween)
         this.DividerItem(0)
         // 创建时间
         Row() {
-          this.LabelText('创建时间')
+          this.LabelText($r('app.string.user_create_time'))
           Row() { this.LabelShow('2025-02-11 01:02:03') }
         }.itemStyle().padding(this.labelPading).justifyContent(FlexAlign.SpaceBetween)
       }
@@ -129,16 +129,19 @@ export struct UserIndex {
       .margin(BaseConstants.MODULE_PADDING)
 
       Column() {
-        MainButton({ btnText: '保存', btnWidth: '100%',
+        MainButton({ 
+          btnText: $r('app.string.user_save'), 
+          btnWidth: '100%',
           onButtonClick: () => {
-
-          }})
+            
+          }
+        })
       }
       .padding({ top: 16, left: 20, right: 20 })
       .width(BaseConstants.FULL_WIDTH)
 
     }
-    .title(PageTitleBuilder('个人资料'))
+    .title(PageTitleBuilder($r('app.string.user_profile')))
     .backgroundColor($r('app.color.back_color'))
   }
 

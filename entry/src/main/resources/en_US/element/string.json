@@ -143,6 +143,126 @@
     {
       "name": "user_agreement",
       "value": "User Agreement"
+    },
+    {
+      "name": "user_profile",
+      "value": "Profile"
+    },
+    {
+      "name": "user_avatar",
+      "value": "Avatar"
+    },
+    {
+      "name": "user_name",
+      "value": "Username"
+    },
+    {
+      "name": "user_nickname",
+      "value": "Nickname"
+    },
+    {
+      "name": "user_phone",
+      "value": "Phone"
+    },
+    {
+      "name": "user_email",
+      "value": "Email"
+    },
+    {
+      "name": "user_gender",
+      "value": "Gender"
+    },
+    {
+      "name": "user_department",
+      "value": "Department"
+    },
+    {
+      "name": "user_role",
+      "value": "Role"
+    },
+    {
+      "name": "user_create_time",
+      "value": "Create Time"
+    },
+    {
+      "name": "user_save",
+      "value": "Save"
+    },
+    {
+      "name": "gender_male",
+      "value": "Male"
+    },
+    {
+      "name": "gender_female",
+      "value": "Female"
+    },
+    {
+      "name": "about_version",
+      "value": "Current Version"
+    },
+    {
+      "name": "about_company",
+      "value": "HarmonyOS Next Developer"
+    },
+    {
+      "name": "about_slogan",
+      "value": "Technology Makes Life Better"
+    },
+    {
+      "name": "about_desc",
+      "value": "The HarmonyOS Developer Alliance is a community organization dedicated to fostering the HarmonyOS ecosystem. We focus on facilitating developer collaboration, providing technical support, and organizing educational events. Our mission is to build a robust and sustainable ecosystem by connecting developers worldwide and promoting HarmonyOS development. Through online forums, technical workshops, hackathons, and developer conferences, we create opportunities for developers to learn, share, and grow together."
+    },
+    {
+      "name": "user_manage",
+      "value": "Account Management"
+    },
+    {
+      "name": "security_settings",
+      "value": "Security Settings"
+    },
+    {
+      "name": "change_pass",
+      "value": "Change Password"
+    },
+    {
+      "name": "old_pass",
+      "value": "Old Password"
+    },
+    {
+      "name": "new_pass",
+      "value": "New Password"
+    },
+    {
+      "name": "confirm_pass",
+      "value": "Confirm Password"
+    },
+    {
+      "name": "pls_old_pass",
+      "value": "Old password"
+    },
+    {
+      "name": "pls_new_pass",
+      "value": "New password"
+    },
+    {
+      "name": "pls_confirm_pass",
+      "value": "Confirm new password"
+    },
+    {
+      "name": "confirm_change",
+      "value": "Confirm Change"
+    },
+    {
+      "name": "pass_tips",
+      "value": "Note:"
+    },
+    {
+      "name": "pass_rule1",
+      "value": "1.New password cannot be same as old"
+    },
+    {
+      "name": "pass_rule2",
+      "value": "2.Password must be at least 6 characters"
     }
   ]
 }

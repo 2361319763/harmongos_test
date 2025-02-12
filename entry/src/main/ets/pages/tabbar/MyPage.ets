@@ -51,7 +51,23 @@ export struct MyPage {
           { id: 'help', text: $r('app.string.my_help_center'), iconName: $r('sys.symbol.questionmark_circle') },
           { id: 'version', text: $r('app.string.my_version'), iconName: $r('sys.symbol.arrow_up_circle') },
           { id: 'share', text: $r('app.string.my_share'), iconName: $r('sys.symbol.share') },
-        ], textColor: this.textColor, iconColor: this.iconColor}).margin({ top: 14 })
+        ], textColor: this.textColor, iconColor: this.iconColor , onItemClick: (item: CellListItemModel, index: number) => {
+          switch (item.id) {
+            case 'about':
+              this.pageStack?.pushPathByName('aboutUs', null)
+              break
+            case 'feedback':
+              this.pageStack?.pushPathByName('feedback', null)
+              break
+            case 'help':
+              this.pageStack?.pushPathByName('helpCenter', null)
+              break
+            case 'version':
+              break
+            case 'share':
+              break
+          }
+        }}).margin({ top: 14 })
         // 设置
         CellList({ itemData: [
           { text: $r('app.string.my_settings'),  iconName: $r('sys.symbol.gearshape') }
