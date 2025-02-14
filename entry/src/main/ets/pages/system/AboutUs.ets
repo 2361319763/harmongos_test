@@ -65,7 +65,7 @@ export struct AboutUs {
 
 
         }
-        .width('100%')
+        .width(BaseConstants.FULL_WIDTH)
         .alignItems(HorizontalAlign.Center)
       }
       .padding({ top: 16, left: 20, right: 20 })

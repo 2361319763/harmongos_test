@@ -43,6 +43,12 @@
       "pageSourceFile": "src/main/ets/pages/system/UpdatePassword.ets",
       "buildFunction": "UpdatePasswordBuilder",
       "data": { }
+    },
+    {
+      "name": "chatIndex",
+      "pageSourceFile": "src/main/ets/pages/chat/ChatIndex.ets",
+      "buildFunction": "ChatIndexBuilder",
+      "data": { }
     }
   ]
 }

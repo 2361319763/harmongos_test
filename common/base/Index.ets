@@ -36,5 +36,5 @@ export {
   CellListItemModel,
   FullLoading,
   PageTitleBuilder,
-  ListDividerBorder
+  ListDividerBorder,
 } from "./src/main/ets/components/Index";

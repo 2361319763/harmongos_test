@@ -10,7 +10,7 @@
     },
     {
       "name": "message",
-      "value": "Message"
+      "value": "Session"
     },
     {
       "name": "apps",
@@ -263,6 +263,30 @@
     {
       "name": "pass_rule2",
       "value": "2.Password must be at least 6 characters"
+    },
+    {
+      "name": "edit_title",
+      "value": "Edit Title"
+    },
+    {
+      "name": "delete",
+      "value": "Delete"
+    },
+    {
+      "name": "confirm_delete_chat",
+      "value": "Confirm to delete this chat?"
+    },
+    {
+      "name": "cancel",
+      "value": "Cancel"
+    },
+    {
+      "name": "confirm",
+      "value": "Confirm"
+    },
+    {
+      "name": "new_chat",
+      "value": "New Chat"
     }
   ]
 }

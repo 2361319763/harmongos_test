@@ -10,7 +10,7 @@
     },
     {
       "name": "message",
-      "value": "消息"
+      "value": "会话"
     },
     {
       "name": "apps",
@@ -263,6 +263,30 @@
     {
       "name": "pass_rule2",
       "value": "2.密码长度6位及6位以上"
+    },
+    {
+      "name": "edit_title",
+      "value": "编辑标题"
+    },
+    {
+      "name": "delete",
+      "value": "删除"
+    },
+    {
+      "name": "confirm_delete_chat",
+      "value": "确认删除该会话?"
+    },
+    {
+      "name": "cancel",
+      "value": "取消"
+    },
+    {
+      "name": "confirm",
+      "value": "确定"
+    },
+    {
+      "name": "new_chat",
+      "value": "新会话"
     }
   ]
 }

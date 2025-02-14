@@ -6,7 +6,7 @@ import { hilog } from "@kit.PerformanceAnalysisKit"
 import { setAppColorMode } from "./ColorModeUtils"
 import { setAppLanguage } from "./LanguageUtils"
 import { UserConstants } from "../constants/UserConstants"
-import { promptAction } from '@kit.ArkUI'
+import { promptAction, KeyboardAvoidMode } from '@kit.ArkUI'
 import { UserInfo } from './ContextUtils'
 
 let dataPreferences: preferences.Preferences | null = null
@@ -104,6 +104,7 @@ export class CoreUtils {
       windowStageObj.loadContent('pages/Index', (err) => {
         let windowClass: window.Window = windowStageObj.getMainWindowSync()
         windowClass.setWindowLayoutFullScreen(false)
+        windowClass.getUIContext().setKeyboardAvoidMode(KeyboardAvoidMode.RESIZE)
         systemCreated(err, appContext)
       })
     } else {
