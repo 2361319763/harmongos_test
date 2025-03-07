@@ -14,11 +14,15 @@ class ChatMessage {
   id: string
   content: string
   isUser: boolean
+  isThinking: boolean
+  isGenerating: boolean
 
   constructor(id: string, content: string, isUser: boolean) {
     this.id = id
     this.content = content
     this.isUser = isUser
+    this.isThinking = !isUser
+    this.isGenerating = false
   }
 }
 
@@ -53,6 +57,47 @@ export struct ChatIndex {
   aboutToDisappear() {
     if (this.eventSource) {
       this.eventSource.close()
+    }
+  }
+
+  // 更新AI消息内容
+  private updateAiMessage(messageId: string, content: string) {
+    const index = this.messages.findIndex(msg => msg.id === messageId)
+    if (index !== -1) {
+      const currentMessage = this.messages[index]
+      const newMessage = new ChatMessage(
+        currentMessage.id,
+        currentMessage.content + content,
+        currentMessage.isUser
+      )
+      // 设置状态
+      newMessage.isThinking = false
+      newMessage.isGenerating = true
+      
+      // 更新消息
+      this.messages = this.messages.map((msg, i) => 
+        i === index ? newMessage : msg
+      )
+    }
+  }
+
+  // 完成AI消息生成
+  private completeAiMessage(messageId: string) {
+    const index = this.messages.findIndex(msg => msg.id === messageId)
+    if (index !== -1) {
+      const currentMessage = this.messages[index]
+      // 创建新的消息对象，保持内容不变
+      this.messages = this.messages.map((msg, i) => 
+        i === index ? new ChatMessage(
+          currentMessage.id,
+          currentMessage.content,
+          currentMessage.isUser
+        ) : msg
+      )
+      // 更新消息状态
+      this.messages[index].isGenerating = false
+      this.messages[index].isThinking = false
+      setTimeout(() => this.scrollToBottom, 10)
     }
   }
 
@@ -117,30 +162,49 @@ export struct ChatIndex {
       console.error('SSE Error:', error.message)
       this.updateAiMessage(aiMessageId, '抱歉，连接出错了')
       this.eventSource?.close()
+      // 出错时也标记为完成
+      this.completeAiMessage(aiMessageId)
+    }
+
+    // 监听完成
+    this.eventSource.onComplete = () => {
+      console.info('SSE completed')
+      this.completeAiMessage(aiMessageId)
+      this.eventSource?.close()
     }
   }
   
-  // 更新AI消息内容
-  private updateAiMessage(messageId: string, content: string) {
-    const index = this.messages.findIndex(msg => msg.id === messageId)
-    if (index !== -1) {
-      const currentMessage = this.messages[index]
-      // 创建新的消息对象，但保持其他消息不变
-      this.messages = this.messages.map((msg, i) => 
-        i === index ? new ChatMessage(
-          currentMessage.id,
-          currentMessage.content + content,
-          currentMessage.isUser
-        ) : msg
-      )
-    }
-  }
-
   // 滚动到底部
   private scrollToBottom() {
-    setTimeout(() => {
-      this.scroller.scrollEdge(Edge.Bottom);
-    }, 10)
+    this.scroller.scrollEdge(Edge.Bottom);
+  }
+
+  @Builder
+  LoadingIndicator() {
+    Row() {
+      LoadingProgress()
+        .width(20)
+        .height(20)
+        .margin({ right: 8 })
+      Text('思考中...')
+        .fontSize(14)
+        .fontColor('#999999')
+    }
+    .margin({ left: 52, top: 10 })
+  }
+
+  @Builder
+  GeneratingIndicator() {
+    Row() {
+      LoadingProgress()
+        .width(16)
+        .height(16)
+        .margin({ right: 4 })
+      Text('生成中...')
+        .fontSize(14)
+        .fontColor('#999999')
+    }
+    .margin({ left: 52, top: 10 })
   }
 
   @Builder
@@ -169,14 +233,22 @@ export struct ChatIndex {
           .position({ x: 0, y: 0 })
           
         Column() {
-          Text(message.content)
-            .fontSize(16)
-            .backgroundColor($r('app.color.back_color'))
-            .padding({ left: 18, right: 18, top: 14, bottom: 14 })
-            .borderRadius(BaseConstants.BORDER_RADIUS)
-            .margin({ bottom: 4, right: 46, left: 52 })
-            .wordBreak(WordBreak.BREAK_ALL)
-            .lineHeight(24)
+          if (message.isThinking) {
+            this.LoadingIndicator()
+          } else {
+            Text(message.content)
+              .fontSize(16)
+              .backgroundColor($r('app.color.back_color'))
+              .padding({ left: 18, right: 18, top: 14, bottom: 14 })
+              .borderRadius(BaseConstants.BORDER_RADIUS)
+              .margin({ bottom: 4, left: 52 })
+              .wordBreak(WordBreak.BREAK_ALL)
+              .lineHeight(24)
+            
+            if (message.isGenerating) {
+              this.GeneratingIndicator()
+            }
+          }
         }
         Blank()
       }

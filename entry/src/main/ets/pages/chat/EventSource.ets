@@ -27,6 +27,7 @@ export default class CustomEventSource {
   private options: EventSourceOptions
   private onmessage: EventCallback | null = null
   private onerror: ((error: Error) => void) | null = null
+  private oncomplete: (() => void) | null = null
   private buffer: string = ''
   private isActive: boolean = false
   private decoder: util.TextDecoder = new util.TextDecoder()
@@ -75,15 +76,18 @@ export default class CustomEventSource {
     })
 
     // 发起请求
-    this.httpRequest.requestInStream(
+    let promise = this.httpRequest.requestInStream(
       this.url,
-      requestOptions,
-      (err: Error) => {
-        if (err) {
-          this.handleError(err)
-        }
-      }
+      requestOptions
     )
+
+    promise.then((data: number) => {
+      if (this.oncomplete) {
+        this.oncomplete()
+      }
+    }).catch((err: Error) => {
+      this.handleError(err)
+    });
   }
 
   private processChunk(chunk: string) {
@@ -128,5 +132,9 @@ export default class CustomEventSource {
 
   public set onError(callback: (error: Error) => void) {
     this.onerror = callback
+  }
+
+  public set onComplete(callback: () => void) {
+    this.oncomplete = callback
   }
 }
