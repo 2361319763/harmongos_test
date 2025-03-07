@@ -10,5 +10,7 @@ export const AppConfig: AppConfigModel = {
   appName: 'JHM-OFFICE',
   loginTitle: `${StringUtils.getResStr($r('app.string.welcome_login'))}JHM`,
   loginLogo: $r('app.media.logo'),
-  copyRight: `${StringUtils.getResStr($r('app.string.copy_right'))} © 2025 476743842@qq.com`
+  copyRight: `${StringUtils.getResStr($r('app.string.copy_right'))} © 2025 476743842@qq.com`,
+  // Ai相关配置
+  aiRootUrl: 'http://192.168.3.27:6005'
 }

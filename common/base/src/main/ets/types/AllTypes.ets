@@ -46,6 +46,7 @@ interface AppConfigModel {
   loginTitle: string;
   loginLogo: Resource | string;
   copyRight: string;
+  aiRootUrl?: string;
 }
 
 /**

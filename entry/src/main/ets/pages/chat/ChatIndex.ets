@@ -1,5 +1,14 @@
 import { BaseConstants, MainButton, PageTitleBuilder } from "jbase"
 import { inputMethod } from '@kit.IMEKit'
+import { AppConfig } from '../../config/Index'
+import { http } from '@kit.NetworkKit'
+import CustomEventSource from './EventSource'
+
+interface SSEData {
+  type: string
+  content: string
+}
+
 // 消息数据模型
 class ChatMessage {
   id: string
@@ -13,6 +22,16 @@ class ChatMessage {
   }
 }
 
+class Header {
+  public contentType: string
+  public accept: string
+
+  constructor(contentType: string, accept: string) {
+    this.contentType = contentType
+    this.accept = accept
+  }
+}
+
 @Builder
 export function ChatIndexBuilder(name: string, param: Object) {
   ChatIndex()
@@ -23,29 +42,105 @@ export function ChatIndexBuilder(name: string, param: Object) {
 export struct ChatIndex {
   @State private messages: ChatMessage[] = []
   @State private inputText: string = ''
+  private eventSource: CustomEventSource | null = null
+  private scroller: Scroller = new Scroller()
+  
   @Builder CustomKeyboardBuilder(){}
+
+  aboutToCreate() {
+  }
+
+  aboutToDisappear() {
+    if (this.eventSource) {
+      this.eventSource.close()
+    }
+  }
+
   // 发送消息
   sendMessage() {
     if (this.inputText.trim() === '') return
     
     // 添加用户消息
-    this.messages.push(new ChatMessage(
-      Date.now().toString(),
-      this.inputText,
-      true
-    ))
+    this.messages = [
+      ...this.messages,
+      new ChatMessage(
+        Date.now().toString(),
+        this.inputText,
+        true
+      )
+    ]
     
+    const userInput = this.inputText
     // 清空输入框
     this.inputText = ''
     
-    // 模拟AI回复
+    // 创建新的AI消息
+    const aiMessageId = Date.now().toString()
+    this.messages = [
+      ...this.messages,
+      new ChatMessage(aiMessageId, '', false)
+    ]
+
+    // 滚动到底部
+    this.scrollToBottom()
+    
+    // 关闭之前的连接
+    if (this.eventSource) {
+      this.eventSource.close()
+    }
+
+    // 创建SSE连接
+    this.eventSource = new CustomEventSource(AppConfig.aiRootUrl + '/chat', {
+      method: http.RequestMethod.POST,
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ query: userInput })
+    })
+
+    // 监听消息
+    this.eventSource.onMessage = (event) => {
+      try {
+        const data: SSEData = JSON.parse(event.data)
+        if (data.type === 'content') {
+          this.updateAiMessage(aiMessageId, data.content)
+          // 每次更新后滚动到底部
+          this.scrollToBottom()
+        }
+      } catch (e) {
+        console.error('Failed to parse SSE data:', e.message)
+      }
+    }
+
+    // 监听错误
+    this.eventSource.onError = (error: Error) => {
+      console.error('SSE Error:', error.message)
+      this.updateAiMessage(aiMessageId, '抱歉，连接出错了')
+      this.eventSource?.close()
+    }
+  }
+  
+  // 更新AI消息内容
+  private updateAiMessage(messageId: string, content: string) {
+    const index = this.messages.findIndex(msg => msg.id === messageId)
+    if (index !== -1) {
+      const currentMessage = this.messages[index]
+      // 创建新的消息对象，但保持其他消息不变
+      this.messages = this.messages.map((msg, i) => 
+        i === index ? new ChatMessage(
+          currentMessage.id,
+          currentMessage.content + content,
+          currentMessage.isUser
+        ) : msg
+      )
+    }
+  }
+
+  // 滚动到底部
+  private scrollToBottom() {
     setTimeout(() => {
-      this.messages.push(new ChatMessage(
-        Date.now().toString(),
-        '你好!很高兴见到你,有什么我可以帮忙的吗?你好!很高兴见到你,有什么我可以帮忙的吗?',
-        false
-      ))
-    }, 1000)
+      this.scroller.scrollEdge(Edge.Bottom);
+    }, 10)
   }
 
   @Builder
@@ -69,14 +164,17 @@ export struct ChatIndex {
           .height(40)
           .borderRadius(BaseConstants.BORDER_RADIUS)
           .margin({ right: 12 })
+          .objectFit(ImageFit.Cover)
+          .markAnchor({ x: 0, y: 0 })
+          .position({ x: 0, y: 0 })
           
         Column() {
           Text(message.content)
             .fontSize(16)
             .backgroundColor($r('app.color.back_color'))
-            .padding({  left: 18, right: 18, top: 14, bottom: 14 })
+            .padding({ left: 18, right: 18, top: 14, bottom: 14 })
             .borderRadius(BaseConstants.BORDER_RADIUS)
-            .margin({ bottom: 4, right: 46 })
+            .margin({ bottom: 4, right: 46, left: 52 })
             .wordBreak(WordBreak.BREAK_ALL)
             .lineHeight(24)
         }
@@ -92,9 +190,9 @@ export struct ChatIndex {
   build() {
     NavDestination() {
       Column() {
-        Scroll() {
+        Scroll(this.scroller) {
           // 消息列表
-          List({ space: 8 }) {
+          List({ scroller: this.scroller, space: 8 }) {
             ForEach(this.messages, (message: ChatMessage) => {
               ListItem() {
                 this.MessageItem(message)
@@ -103,7 +201,11 @@ export struct ChatIndex {
           }
           .width(BaseConstants.FULL_WIDTH)
           .height(BaseConstants.FULL_HEIGHT)
-        }.layoutWeight(1).onClick(() => {
+        }
+        .scrollBar(BarState.Off)
+        .edgeEffect(EdgeEffect.Spring)
+        .layoutWeight(1)
+        .onClick(() => {
           inputMethod.getController().hideTextInput()
         })
         // 输入区域
