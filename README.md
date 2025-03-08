@@ -1,7 +1,7 @@
 <p align="center">
 	<img alt="logo" src="https://oscimg.oschina.net/oscnet/up-b5757f72cf6d38c913ca6d2cbde21047.jpg">
 </p>
-<h1 align="center" style="margin: 30px 0 30px; font-weight: bold;">Jhm v1.0</h1>
+<h1 align="center" style="margin: 30px 0 30px; font-weight: bold;">Jhm v1.1</h1>
 <h4 align="center">基于若依后端框架开发的纯血鸿蒙二开框架</h4>
 <p align="center">
 	<a href="https://gitee.com/476743842/jhm/stargazers"><img src="https://gitee.com/476743842/jhm/badge/star.svg?theme=dark"></a>
@@ -20,15 +20,15 @@
 
 功能列表：
 
-    1、登录页面、注册页面（开发中）
+    1、登录页面、注册页面
     2、多语言管理
     3、深色模式适配
-    4、消息列表、deepseek对接（开发中）
+    4、消息列表、deepseek对接
     5、工作台、应用管理
     6、通讯录页面
     7、我的页面、退出登录
-    8、个人资料、密码修改、头像上传（开发中）
-    9、关于我们、意见反馈、版本更新、等 （开发中）
+    8、个人资料、密码修改、头像上传
+    9、关于我们、意见反馈、版本更新、等
 
 #### 使用说明
 
@@ -40,10 +40,21 @@
 
 有啥建议意见可以加QQ群：1022098710
 
+#### Deepseek对接
+
+目前已经接入了本地的deepseek，其次还简单弄了 文档向量化以及知识库检索等小功能
+
+项目源代码：https://gitee.com/476743842/jhm-ai
+
 #### 演示截图
 
 <table style="width:100%">
 	<tbody>
+		<tr>
+			<td><img alt="" src="https://oscimg.oschina.net/oscnet/up-3d894a5e4740ce735f88d02dcc573ab323e.jpg" /></td>
+			<td><img alt="" src="https://oscimg.oschina.net/oscnet/up-62dc19f3e46dfc27e1f6365717772b7ebf5.jpg" /></td>
+			<td><img alt="" src="https://oscimg.oschina.net/oscnet/up-f869d0a385478b7a193af2af1af97eae75e.jpg" /></td>
+		</tr>
 		<tr>
 			<td><img alt="" src="https://oscimg.oschina.net/oscnet/up-4cc303a2e2520b08f19b3e48cc106c94ec8.jpg" /></td>
 			<td><img alt="" src="https://oscimg.oschina.net/oscnet/up-a71219124debec810ac64c2cc2f5759371a.jpg" /></td>
@@ -62,6 +73,11 @@
 		<tr>
 			<td><img alt="" src="https://oscimg.oschina.net/oscnet/up-a9f4d6309a670ad4680c01d8f9ccc05fcd9.jpg" /></td>
 			<td><img alt="" src="https://oscimg.oschina.net/oscnet/up-fc4b8fb373496c52e3d6e5c7ce73a55217b.jpg" /></td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td><img alt="" src="https://oscimg.oschina.net/oscnet/up-5cf2a0f4ae74d81faf056ae07000ccbd5bb.jpg" /></td>
+			<td><img alt="" src="https://oscimg.oschina.net/oscnet/up-e867efdfb235d3e1461768d060d74ddd50a.jpg" /></td>
 			<td><img alt="" src="https://oscimg.oschina.net/oscnet/up-09cc5985e508af244ea25f81e48bb64dfda.jpg" /></td>
 		</tr>
 		<tr>
