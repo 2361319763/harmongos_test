@@ -1,8 +1,10 @@
-
+import { CellList, CellListItemModel } from 'base'
 // 首页
 @Component
 export struct HomePage {
     @Consume('pageInfos') pageStack: NavPathStack;
+    @State textColor: Resource | null = $r('app.color.black')
+    @State iconColor: Resource | null = $r('app.color.main_color')
 
     @Builder
     itemHead(title: string) {
@@ -20,7 +22,19 @@ export struct HomePage {
                     header: this.itemHead('Test')
                 }) {
                     ListItem(){
-                        Text('To Web')
+                        CellList({
+                            itemData: [
+                                { id: '1',text: 'TO Web' }
+                            ],
+                            textColor: this.textColor, iconColor: this.iconColor, onItemClick: (item: CellListItemModel, index: number) => {
+                                switch (item.id) {
+                                    case '1':
+                                        let src = 'https://www.baidu.com'
+                                        this.pageStack?.pushPathByName('webViewPage', src)
+                                        break
+                                }
+                            }
+                        }).margin({ bottom: 14, left: 14, right: 14 })
                     }
                 }
             }
