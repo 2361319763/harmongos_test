@@ -1,4 +1,4 @@
-import { RequestUtils } from "jbase"
+import { RequestUtils } from "base"
 import { AppConfig } from "../config/Index"
 import { http } from "@kit.NetworkKit"
 

@@ -1,4 +1,4 @@
-import { BaseConstants, MainButton, CoreUtils, UserConstants, ContextUtils, FullLoading } from 'jbase'
+import { BaseConstants, MainButton, CoreUtils, UserConstants, ContextUtils, FullLoading } from 'base'
 import { getCodeImg, login, getUserInfo, LoginParams } from '../api/Login'
 import { AppConfig } from '../config/Index'
 

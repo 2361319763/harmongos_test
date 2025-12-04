@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My first Vue app</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.7.15/vue.common.dev.min.js"></script>
+    <style>
+        body {
+          margin: 0;
+          padding: 0;
+          width: 100%;
+          height: 100%;
+          overflow: auto;
+        }
+    </style>
+</head>
+<body>
+<div id="app" style="font-size:25px;">
+    {{ message }}
+    <input v-model="message" placeholder="请输入message" @input="onChange">
+</div>
+
+<script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+        message: 'Hello Vue!'
+      },
+      methods: {
+        onChange() {
+            console.log('message值变化了',this.message)
+            // 通过注册的代理对象调用ArkTS方法
+            window.Harmony.handleMessage(`调用ArkTS的handleMessage方法：${app.message}`);
+        }
+      }
+    })
+    // 定义全局方法供ArkTS调用
+    window.setEditorContent = function(content) {
+      app.message = content; // 修改Vue实例的message属性
+    };
+</script>
+</body>
+</html>

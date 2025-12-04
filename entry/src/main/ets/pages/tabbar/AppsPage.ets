@@ -1,4 +1,4 @@
-import { BaseConstants, SearchInput, NoticeBar, NoticeBarModel, AppsModule } from "jbase"
+import { BaseConstants, SearchInput, NoticeBar, NoticeBarModel, AppsModule } from "base"
 import { MyAppMock, AllAppMock } from "../../mock/AppDataMock"
 import { AppsManageParams } from "../apps/AppsManage"
 // 工作台页面

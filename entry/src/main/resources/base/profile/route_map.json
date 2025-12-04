@@ -45,9 +45,9 @@
       "data": { }
     },
     {
-      "name": "chatIndex",
-      "pageSourceFile": "src/main/ets/pages/chat/ChatIndex.ets",
-      "buildFunction": "ChatIndexBuilder",
+      "name": "webViewPage",
+      "pageSourceFile": "src/main/ets/pages/web/WebView.ets",
+      "buildFunction": "WebViewPageBuilder",
       "data": { }
     }
   ]

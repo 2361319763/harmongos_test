@@ -1,4 +1,4 @@
-import { BaseConstants, StringUtils, LanguageModel, setLanguage, PageTitleBuilder } from 'jbase';
+import { BaseConstants, StringUtils, LanguageModel, setLanguage, PageTitleBuilder } from 'base';
 import { i18n } from '@kit.LocalizationKit';
 
 @Builder

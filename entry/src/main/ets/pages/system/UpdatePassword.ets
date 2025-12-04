@@ -1,4 +1,4 @@
-import { BaseConstants, MainButton, PageTitleBuilder } from "jbase"
+import { BaseConstants, MainButton, PageTitleBuilder } from "base"
 
 @Builder
 export function UpdatePasswordBuilder(name: string, param: Object) {

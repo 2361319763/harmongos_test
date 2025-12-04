@@ -1,6 +1,6 @@
 import { common } from '@kit.AbilityKit';
 import { setDarkColorMode, setLightColorMode, setAutoColorMode, BaseConstants, StringUtils,
-  PageTitleBuilder } from 'jbase';
+  PageTitleBuilder } from 'base';
 
 @Builder
 export function DarkSettingBuilder(name: string, param: Object) {

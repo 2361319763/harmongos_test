@@ -2,7 +2,7 @@ import { AbilityConstant, Configuration, UIAbility, Want } from '@kit.AbilityKit
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { window } from '@kit.ArkUI';
 import { CustomTheme, CustomColors, ThemeControl } from '@kit.ArkUI';
-import { CoreUtils } from 'jbase';
+import { CoreUtils } from 'base';
 // 自定义主题颜色
 class MainColors implements CustomColors {
   brand = $r('app.color.main_color')

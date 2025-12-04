@@ -1,4 +1,4 @@
-import { BaseConstants } from 'jbase';
+import { BaseConstants } from 'base';
 
 @Component
 export struct ContactsItem {

@@ -35,7 +35,7 @@ export class CoreUtils {
   /**
    * 设置全局存储
    */
-  static setJhmData = (key: string, value: ValueType | UserInfo) => {
+  static setStorageData = (key: string, value: ValueType | UserInfo) => {
     if (!dataPreferences) {
       return false
     }
@@ -54,7 +54,7 @@ export class CoreUtils {
   /**
    * 获取全局存储
    */
-  static getJhmData = (key: string, defaultValue: string) => {
+  static getStorageData = (key: string, defaultValue: string) => {
     if (!dataPreferences) {
       return ''
     }
@@ -64,7 +64,7 @@ export class CoreUtils {
   /**
    * 删除全局存储
    */
-  static delJhmData = (key: string) => {
+  static delStorageData = (key: string) => {
     if (!dataPreferences) {
       return false
     }
@@ -84,10 +84,10 @@ export class CoreUtils {
    */
   static initSystem = (windowStage: window.WindowStage, context: common.UIAbilityContext) => {
     // 初始化全局存储
-    dataPreferences = preferences.getPreferencesSync(context, { name: 'JhmStore' });
+    dataPreferences = preferences.getPreferencesSync(context, { name: 'Store' });
     windowStageObj = windowStage;
     appContext = context;
-    let token = this.getJhmData(UserConstants.TOKEN_KEY, '');
+    let token = this.getStorageData(UserConstants.TOKEN_KEY, '');
     console.log('token: ' + token);
     if (!!token) {
       this.toIndex()
@@ -131,8 +131,8 @@ export class CoreUtils {
    * 退出登录
    */
   static logout = () => {
-    this.delJhmData(UserConstants.TOKEN_KEY)
-    this.delJhmData(UserConstants.CTT_KEY)
+    this.delStorageData(UserConstants.TOKEN_KEY)
+    this.delStorageData(UserConstants.CTT_KEY)
   }
 
   /**

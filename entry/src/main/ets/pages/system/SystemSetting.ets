@@ -1,4 +1,4 @@
-import { BaseConstants, CellList, CellListItemModel, PageTitleBuilder, StringUtils } from "jbase"
+import { BaseConstants, CellList, CellListItemModel, PageTitleBuilder, StringUtils } from "base"
 
 @Builder
 export function SystemSettingBuilder(name: string, param: Object) {

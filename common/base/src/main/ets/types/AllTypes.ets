@@ -19,16 +19,6 @@ interface AppItemModel {
 }
 
 /**
- * 联系人数据
- */
-interface ContactsDataModel {
-  name: Resource | string;
-  code: string
-  en_name: string;
-  icon: Resource;
-}
-
-/**
  * 语言数据
  */
 interface LanguageModel {
@@ -42,6 +32,7 @@ interface LanguageModel {
 interface AppConfigModel {
   baseUrl: string;
   appName: string;
+  customUserAgent: string;
   appLogo: Resource | string;
   loginTitle: string;
   loginLogo: Resource | string;
@@ -55,4 +46,4 @@ interface AppConfigModel {
 const Alphabets: string[] = ['#', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K',
   'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
 
-export { NoticeBarModel, AppItemModel, ContactsDataModel, LanguageModel, AppConfigModel, Alphabets }
+export { NoticeBarModel, AppItemModel, LanguageModel, AppConfigModel, Alphabets }

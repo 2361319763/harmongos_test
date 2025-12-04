@@ -1,7 +1,7 @@
-import { BaseConstants } from 'jbase'
+import { BaseConstants } from 'base'
 import { HomePage } from './tabbar/HomePage'
 import { AppsPage } from './tabbar/AppsPage'
-import { ContactPage } from './tabbar/ContactPage'
+import { WebPage } from './tabbar/WebPage'
 import { MyPage } from './tabbar/MyPage'
 /**
  * 首页页面
@@ -37,11 +37,11 @@ struct Index {
           unselectedColor: $r('app.color.gl_888')
         }))
 
-        // 联系人
-        TabContent(){ ContactPage() }
+        // Web
+        TabContent(){ WebPage() }
         .width(BaseConstants.FULL_WIDTH)
         .tabBar(BottomTabBarStyle.of(this.pageIndex == 2 ?
-          $r('app.media.contact_select') : $r('app.media.contact'), $r('app.string.contacts')).labelStyle({
+          $r('app.media.contact_select') : $r('app.media.contact'), $r('app.string.web')).labelStyle({
           selectedColor: $r('app.color.main_color'),
           unselectedColor: $r('app.color.gl_888')
         }))
@@ -55,9 +55,9 @@ struct Index {
         }))
       }
       .barOverlap(true)
+      .scrollable(false)
       .animationDuration(300)
       .onTabBarClick((index: number) => this.pageIndex = index)
-      .onChange((index: number) => this.pageIndex = index)
     }
     .height(BaseConstants.FULL_HEIGHT)
     .hideTitleBar(true)

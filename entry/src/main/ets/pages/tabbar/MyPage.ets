@@ -1,4 +1,4 @@
-import { BaseConstants, CellList, CellListItemModel, CoreUtils, ContextUtils, UserInfo } from 'jbase'
+import { BaseConstants, CellList, CellListItemModel, CoreUtils, ContextUtils, UserInfo } from 'base'
 import { logout } from '../../api/Login'
 import { AppConfig } from '../../config/Index'
 

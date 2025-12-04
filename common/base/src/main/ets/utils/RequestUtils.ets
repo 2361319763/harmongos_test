@@ -64,7 +64,7 @@ export class RequestUtils {
                   secondaryButton: {
                     value: $r('app.string.re_login'),
                     action: () => {
-                      CoreUtils.delJhmData(UserConstants.TOKEN_KEY)
+                      CoreUtils.delStorageData(UserConstants.TOKEN_KEY)
                       CoreUtils.toLogin()
                     }
                   }

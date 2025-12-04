@@ -1,9 +1,9 @@
 // 基础一些字典
 export { BaseConstants, DeviceTypes } from "./src/main/ets/constants/BaseConstants";
-// 核心类库
-export { CoreUtils } from "./src/main/ets/utils/CoreUtils";
 // 用户字典
 export { UserConstants } from "./src/main/ets/constants/UserConstants";
+// 核心类库
+export { CoreUtils } from "./src/main/ets/utils/CoreUtils";
 // 工具类
 export { StringUtils } from "./src/main/ets/utils/StringUtils";
 // 深色主题设置
@@ -19,7 +19,6 @@ export { RequestUtils, RequestConfig } from "./src/main/ets/utils/RequestUtils";
 export {
   NoticeBarModel,
   AppItemModel,
-  ContactsDataModel,
   LanguageModel,
   AppConfigModel,
   Alphabets,

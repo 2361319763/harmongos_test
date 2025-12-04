@@ -1,4 +1,4 @@
-import { AppItemModel } from 'jbase'
+import { AppItemModel } from 'base'
 
 /**
  * 我的常用模拟数据

@@ -1,4 +1,4 @@
-import { AppItemModel, BaseConstants, StringUtils, ListDividerBorder } from "jbase"
+import { AppItemModel, BaseConstants, StringUtils, ListDividerBorder } from "base"
 import { AllAppMock } from "../../mock/AppDataMock"
 
 interface typeParams {
