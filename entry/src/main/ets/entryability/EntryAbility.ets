@@ -1,7 +1,7 @@
 import { AbilityConstant, Configuration, UIAbility, Want } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
-import { window } from '@kit.ArkUI';
-import { CustomTheme, CustomColors, ThemeControl } from '@kit.ArkUI';
+import { CustomTheme, CustomColors, ThemeControl, window } from '@kit.ArkUI';
+import { webview } from '@kit.ArkWeb';
 import { CoreUtils } from 'base';
 // 自定义主题颜色
 class MainColors implements CustomColors {
@@ -20,6 +20,13 @@ export default class EntryAbility extends UIAbility {
     // 创建实例
     const MainColorsTheme = new PageCustomTheme(new MainColors());
     ThemeControl.setDefaultTheme(MainColorsTheme);
+
+    // 设置Web组件前进后退缓存
+    let features = new webview.BackForwardCacheSupportedFeatures();
+    features.nativeEmbed = true;
+    features.mediaTakeOver = true;
+    webview.WebviewController.enableBackForwardCache(features);
+    webview.WebviewController.initializeWebEngine();
     hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onCreate');
   }
 

@@ -1,5 +1,5 @@
 import { webview } from '@kit.ArkWeb';
-import { BaseConstants } from 'base';
+import { BaseConstants, StringUtils } from 'base';
 import { FullLoading } from 'base';
 import { AppConfig } from '../../config/Index';
 import { display } from '@kit.ArkUI';
@@ -30,10 +30,14 @@ struct NavTitle {
   @State private screenWidth: number = 0
 
   aboutToAppear(): void {
-    this.screenWidth = px2vp(display.getDefaultDisplaySync().width)
-    display.on('change', () => {
+    try {
       this.screenWidth = px2vp(display.getDefaultDisplaySync().width)
-    })
+      display.on('change', () => {
+        this.screenWidth = px2vp(display.getDefaultDisplaySync().width)
+      })
+    } catch (error) {
+      console.error(`ErrorCode: ${error.code},  Message: ${error.message}`)
+    }
   }
 
   build() {
@@ -67,6 +71,7 @@ export struct WebViewPage {
   @Prop src: ParamType;
   @State harmony: Harmony = new Harmony()
   @State isLoading: boolean = true
+  @State barHidden: boolean = false
   @State title: string = ''
 
 
@@ -76,7 +81,11 @@ export struct WebViewPage {
   }
 
   aboutToAppear(): void {
-    console.log(`${this.src}`)
+    // 获取src携带的参数
+    if (typeof this.src === 'string') {
+      const barHidden = StringUtils.getQueryParam(this.src, "barHidden");
+      this.barHidden = barHidden === 'true';
+    }
   }
 
   build() {
@@ -114,11 +123,11 @@ export struct WebViewPage {
         })
         .onPageBegin((event) => {
           // 网页开始加载时触发该回调
-          this.isLoading = true
+          this.isLoading = true;
         })
         .onPageEnd((event) => {
           // 网页加载完成时触发该回调
-          this.isLoading = false
+          this.isLoading = false;
           try {
             this.controller.runJavaScript(
               'setEditorContent("测试方法")', // 直接使用字符串
@@ -137,20 +146,24 @@ export struct WebViewPage {
         .onErrorReceive((event) => {
           // 网页加载遇到错误时触发该回调. 无网下会触发该回调
           console.error('页面加载错误: ' + event?.error?.getErrorInfo())
-          this.isLoading = false
+          this.isLoading = false;
         })
       // .onHttpErrorReceive((event) => {
       //   // 网页加载资源遇到的HTTP错误（响应码>=400)时触发该回调
       // })
-      // .onProgressChange((event) => {
-      //   // 网页加载进度变化时触发该回调
-      // })
+      .onProgressChange((event) => {
+        // 网页加载进度变化时触发该回调
+        if (event && event.newProgress > 10) {
+          this.isLoading = false;
+        }
+      })
     }
+    .hideTitleBar(this.barHidden)
     .title(this.CustomNavTitle(this.title))
     .onBackPressed(() => {
       if (this.controller.accessBackward()) {
-        this.controller.backward()
-        return true
+        this.controller.backward();
+        return true;
       } else {
         const popDestinationInfo = this.pageInfos.pop();
         return true;
@@ -158,9 +171,5 @@ export struct WebViewPage {
     }).onReady((context: NavDestinationContext) => {
       this.pageInfos = context.pathStack;
     })
-  }
-
-  onBackPress(): boolean | void {
-
   }
 }
