@@ -29,7 +29,7 @@ export struct HomePage {
                             textColor: this.textColor, iconColor: this.iconColor, onItemClick: (item: CellListItemModel, index: number) => {
                                 switch (item.id) {
                                     case '1':
-                                        let src = 'https://www.baidu.com'
+                                        let src = 'https://www.baidu.com?barHidden=true'
                                         this.pageStack?.pushPathByName('webViewPage', src)
                                         break
                                 }
