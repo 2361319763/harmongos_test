@@ -49,6 +49,18 @@
       "pageSourceFile": "src/main/ets/pages/web/WebView.ets",
       "buildFunction": "WebViewPageBuilder",
       "data": { }
+    },
+    {
+      "name": "gesturePage",
+      "pageSourceFile": "src/main/ets/pages/arkui/Gesture.ets",
+      "buildFunction": "GesturePageBuilder",
+      "data": { }
+    },
+    {
+      "name": "dialogPage",
+      "pageSourceFile": "src/main/ets/pages/arkui/Dialog.ets",
+      "buildFunction": "DialogPageBuilder",
+      "data": { }
     }
   ]
 }

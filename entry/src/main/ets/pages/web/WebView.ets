@@ -187,48 +187,6 @@ export struct WebViewPage {
             console.error(`ErrorCode: ${error.code},  Message: ${error.message}`);
           }
         })
-        .onErrorReceive((event) => {
-          // 网页加载遇到错误时触发该回调. 无网下会触发该回调
-          this.isLoading = false;
-          if (event) {
-            console.info('getErrorInfo:' + event.error.getErrorInfo());
-            console.info('getErrorCode:' + event.error.getErrorCode());
-            console.info('url:' + event.request.getRequestUrl());
-            console.info('isMainFrame:' + event.request.isMainFrame());
-            console.info('isRedirect:' + event.request.isRedirect());
-            console.info('isRequestGesture:' + event.request.isRequestGesture());
-            console.info('getRequestHeader_headerKey:' + event.request.getRequestHeader().toString());
-            let result = event.request.getRequestHeader();
-            console.info('The request header result size is ' + result.length);
-            for (let i of result) {
-              console.info('The request header key is : ' + i.headerKey + ', value is : ' + i.headerValue);
-            }
-          }
-        })
-        .onHttpErrorReceive((event) => {
-          // 网页加载资源遇到的HTTP错误（响应码>=400)时触发该回调
-          if (event) {
-            console.info('url:' + event.request.getRequestUrl());
-            console.info('isMainFrame:' + event.request.isMainFrame());
-            console.info('isRedirect:' + event.request.isRedirect());
-            console.info('isRequestGesture:' + event.request.isRequestGesture());
-            console.info('getResponseData:' + event.response.getResponseData());
-            console.info('getResponseEncoding:' + event.response.getResponseEncoding());
-            console.info('getResponseMimeType:' + event.response.getResponseMimeType());
-            console.info('getResponseCode:' + event.response.getResponseCode());
-            console.info('getReasonMessage:' + event.response.getReasonMessage());
-            let result = event.request.getRequestHeader();
-            console.info('The request header result size is ' + result.length);
-            for (let i of result) {
-              console.info('The request header key is : ' + i.headerKey + ' , value is : ' + i.headerValue);
-            }
-            let resph = event.response.getResponseHeader();
-            console.info('The response header result size is ' + resph.length);
-            for (let i of resph) {
-              console.info('The response header key is : ' + i.headerKey + ' , value is : ' + i.headerValue);
-            }
-          }
-        })
         .onProgressChange((event) => {
           // 网页加载进度变化时触发该回调
           if (event && event.newProgress > 10) {
@@ -284,10 +242,53 @@ export struct WebViewPage {
           return true
         })
         .onLoadIntercept((event) => {
+          const url = event.data.getRequestUrl();
           if (event.data.isRedirect()) {
             console.log('[重定向]');
           }
           return false
+        })
+        .onErrorReceive((event) => {
+          // 网页加载遇到错误时触发该回调. 无网下会触发该回调
+          this.isLoading = false;
+          if (event) {
+            console.info('getErrorInfo:' + event.error.getErrorInfo());
+            console.info('getErrorCode:' + event.error.getErrorCode());
+            console.info('url:' + event.request.getRequestUrl());
+            console.info('isMainFrame:' + event.request.isMainFrame());
+            console.info('isRedirect:' + event.request.isRedirect());
+            console.info('isRequestGesture:' + event.request.isRequestGesture());
+            console.info('getRequestHeader_headerKey:' + event.request.getRequestHeader().toString());
+            let result = event.request.getRequestHeader();
+            console.info('The request header result size is ' + result.length);
+            for (let i of result) {
+              console.info('The request header key is : ' + i.headerKey + ', value is : ' + i.headerValue);
+            }
+          }
+        })
+        .onHttpErrorReceive((event) => {
+          // 网页加载资源遇到的HTTP错误（响应码>=400)时触发该回调
+          if (event) {
+            console.info('url:' + event.request.getRequestUrl());
+            console.info('isMainFrame:' + event.request.isMainFrame());
+            console.info('isRedirect:' + event.request.isRedirect());
+            console.info('isRequestGesture:' + event.request.isRequestGesture());
+            console.info('getResponseData:' + event.response.getResponseData());
+            console.info('getResponseEncoding:' + event.response.getResponseEncoding());
+            console.info('getResponseMimeType:' + event.response.getResponseMimeType());
+            console.info('getResponseCode:' + event.response.getResponseCode());
+            console.info('getReasonMessage:' + event.response.getReasonMessage());
+            let result = event.request.getRequestHeader();
+            console.info('The request header result size is ' + result.length);
+            for (let i of result) {
+              console.info('The request header key is : ' + i.headerKey + ' , value is : ' + i.headerValue);
+            }
+            let resph = event.response.getResponseHeader();
+            console.info('The response header result size is ' + resph.length);
+            for (let i of resph) {
+              console.info('The response header key is : ' + i.headerKey + ' , value is : ' + i.headerValue);
+            }
+          }
         })
     }
     .hideTitleBar(this.barHidden)

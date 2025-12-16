@@ -24,13 +24,21 @@ export struct HomePage {
                     ListItem(){
                         CellList({
                             itemData: [
-                                { id: '1',text: 'TO Web' }
+                                { id: '1',text: 'TO Web' },
+                                { id: '2',text: '手势事件' },
+                                { id: '3',text: '弹窗' },
                             ],
                             textColor: this.textColor, iconColor: this.iconColor, onItemClick: (item: CellListItemModel, index: number) => {
                                 switch (item.id) {
                                     case '1':
                                         let src = 'https://www.baidu.com?barHidden=true'
                                         this.pageStack?.pushPathByName('webViewPage', src)
+                                        break
+                                    case '2':
+                                        this.pageStack?.pushPathByName('gesturePage', null)
+                                        break
+                                    case '3':
+                                        this.pageStack?.pushPathByName('dialogPage', null)
                                         break
                                 }
                             }
